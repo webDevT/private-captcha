@@ -1,0 +1,122 @@
+<header class="header">
+    <div class="container header__container">
+        <a class="header__logo" href="/" aria-label="Private Captcha home">
+            <img class="header__logo-image" src="img/common/logo.svg" width="152" height="44" alt="Private Captcha">
+        </a>
+
+        <nav class="header__nav" id="site-menu" aria-label="Primary navigation">
+            <ul class="header__menu">
+                <li class="header__menu-item header__menu-item--has-dropdown">
+                    <a class="header__menu-link header__menu-link--dropdown" href="/use-cases.html" aria-haspopup="true" aria-expanded="false">
+                        Use cases
+                        <span class="header__menu-arrow" aria-hidden="true"></span>
+                    </a>
+                    <button class="header__submenu-back" type="button" aria-label="Back to main menu">
+                        <span class="header__submenu-back-icon" aria-hidden="true"></span>
+                        <span class="header__submenu-back-text">Use cases</span>
+                    </button>
+                    <ul class="header__dropdown" aria-label="Use cases submenu">
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/use-cases/form-protection.html">Form protection</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/use-cases/gdpr-compliance.html">GDPR compliance</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/use-cases/secure-wordpress.html">Secure WordPress</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/use-cases/rate-limiting.html">Rate limiting</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/use-cases/accessibility.html">Accessibility</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="header__menu-item header__menu-item--has-dropdown">
+                    <a class="header__menu-link header__menu-link--dropdown" href="/features.html" aria-haspopup="true" aria-expanded="false">
+                        Features
+                        <span class="header__menu-arrow" aria-hidden="true"></span>
+                    </a>
+                    <button class="header__submenu-back" type="button" aria-label="Back to main menu">
+                        <span class="header__submenu-back-icon" aria-hidden="true"></span>
+                        <span class="header__submenu-back-text">Features</span>
+                    </button>
+                    <ul class="header__dropdown header__dropdown--features" aria-label="Features submenu">
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#smart-difficulty-scaling">Smart difficulty scaling</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#custom-rules">Custom rules</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#eu-only-endpoints">EU-only endpoints</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#audit-logs">Audit logs</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#platform-api">Platform API</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#usage-statistics">Usage statistics</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#widget-customization">Widget customization</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#dns-proxy">DNS proxy</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="header__menu-item header__menu-item--has-dropdown">
+                    <a class="header__menu-link header__menu-link--dropdown" href="/alternatives.html" aria-haspopup="true" aria-expanded="false">
+                        Alternative
+                        <span class="header__menu-arrow" aria-hidden="true"></span>
+                    </a>
+                    <button class="header__submenu-back" type="button" aria-label="Back to main menu">
+                        <span class="header__submenu-back-icon" aria-hidden="true"></span>
+                        <span class="header__submenu-back-text">Alternative</span>
+                    </button>
+                    <ul class="header__dropdown header__dropdown--alternative" aria-label="Alternative submenu">
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/alternatives/google-recaptcha.html">Google reCAPTCHA</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/alternatives/hcaptcha.html">hCaptcha</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/alternatives/cloudflare-turnstile.html">Cloudflare Turnstile</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/alternatives/friendly-captcha.html">Friendly Captcha</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="header__menu-item">
+                    <a class="header__menu-link" href="/docs.html">Docs</a>
+                </li>
+                <li class="header__menu-item">
+                    <a class="header__menu-link" href="/pricing.html">Pricing</a>
+                </li>
+                <li class="header__menu-item">
+                    <a class="header__menu-link" href="/self-hosting.html">Self-hosting</a>
+                </li>
+            </ul>
+            <div class="header__mobile-actions">
+                <a class="button button--primary header__mobile-signup" href="/signup.html">Start free trial</a>
+            </div>
+        </nav>
+
+        <div class="header__actions">
+            <a class="button button--text header__login" href="/login.html">Log in</a>
+            <a class="button button--secondary header__signup" href="/signup.html">Sign up</a>
+        </div>
+
+        <button class="header__toggle" type="button" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false">
+            <span class="header__toggle-line"></span>
+            <span class="header__toggle-line"></span>
+            <span class="header__toggle-line"></span>
+        </button>
+    </div>
+</header>

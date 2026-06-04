@@ -1,0 +1,78 @@
+@use 'vars' as *;
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    padding: 18px 46px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-weight: $font-weight-semibold;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        border-radius 0.2s ease,
+        opacity 0.2s ease;
+
+    &:disabled,
+    &[aria-disabled='true'] {
+        pointer-events: none;
+        color: $color-grey-600;
+        border-color: $color-grey-600;
+
+    }
+    &:hover,
+    &:focus-visible {
+        outline: none;
+        border-radius: 4px;
+    }
+
+    &--primary {
+        border-color: $color-black;
+        background-color: $color-black;
+        color: $color-white;
+
+        &:hover,
+        &:focus-visible {
+            border-color: $color-dark-green-hover;
+            background-color: $color-dark-green-hover;
+        }
+    }
+
+    &--secondary {
+        border-color: $color-black;
+        background-color: $color-white;
+        color: $color-black;
+
+        &:hover,
+        &:focus-visible {
+            border-color: $color-dark-green-hover;
+            border-radius: 4px;
+        }
+    }
+
+    &--text {
+        min-height: auto;
+        padding: 4px 6px;
+        border-color: transparent;
+        background-color: transparent;
+        color: $color-black;
+
+        &:hover,
+        &:focus-visible {
+            color: $color-dark-green-hover;
+        }
+    }
+
+    &--with-icon {
+        gap: 8px;
+        min-height: 36px;
+        padding: 4px 8px;
+    }
+}

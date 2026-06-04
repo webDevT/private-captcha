@@ -1,0 +1,95 @@
+@use 'sass:map';
+@use 'vars' as *;
+
+// External Private Captcha widget classes are kept as-is.
+.pc-captcha-widget {
+    display: flex;
+    align-items: center;
+    width: 360px;
+    padding: 15px 24px ;
+    border: 1px solid $color-grey-250-stroke;
+    background-color: $color-grey-10-surface;
+    color: $color-grey-950;
+}
+
+.pc-interactive-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.pc-interactive-area input {
+    width: 36px;
+    height: 36px;
+    margin: 0;
+    accent-color: $color-dark-green;
+}
+
+.pc-interactive-area label {
+    font-size: map.get($typography-title-small, font-size);
+    font-weight: map.get($typography-title-small, font-weight);
+    line-height: map.get($typography-title-small, line-height);
+    cursor: pointer;
+}
+
+.pc-spacer {
+    flex: 1 1 auto;
+}
+
+.pc-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+    flex: 0 0 auto;
+}
+
+.pc-logo {
+    width: 34px;
+    color: $color-black;
+}
+
+.pc-link {
+    color: $color-grey-600;
+    font-family: $font-family-general-sans;
+    font-size: map.get($typography-body-12, font-size);
+    line-height: map.get($typography-body-12, line-height);
+    text-align: center;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+        color: $color-dark-green-hover;
+    }
+}
+
+@media (max-width: 992px) {
+    .pc-captcha-widget {
+        width: 273px;
+        min-height: 85px;
+        padding: 18px;
+    }
+
+    .pc-interactive-area {
+        gap: 12px;
+    }
+
+    .pc-interactive-area input {
+        width: 27px;
+        height: 27px;
+    }
+
+    .pc-interactive-area label {
+        font-size: map.get($typography-body-14, font-size);
+        line-height: map.get($typography-body-14, line-height);
+    }
+
+    .pc-logo {
+        width: 40px;
+        height: 43px;
+    }
+
+    .pc-link {
+        font-size: 9px;
+    }
+}

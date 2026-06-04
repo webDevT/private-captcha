@@ -1,0 +1,28 @@
+@use 'vars' as *;
+
+.hero {
+    padding-top: 160px;
+    background: $color-bg-gradient-hero;
+
+    &__container {
+        text-align: center;
+    }
+
+    &__button {
+        margin-top: 32px;
+    }
+
+    &__title-highlight {
+        color: $color-coral-for-bac;
+    }
+    &__description {
+        width: 574px;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    .pc-captcha-widget {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 91px;
+    }
+}

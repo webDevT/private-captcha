@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use 'vars' as *;
+
+.heading {
+    margin: 0;
+}
+
+.heading--h1 {
+    font-family: map.get($typography-h1, font-family);
+    font-size: map.get($typography-h1, font-size);
+    font-weight: map.get($typography-h1, font-weight);
+    line-height: map.get($typography-h1, line-height);
+    letter-spacing: map.get($typography-h1, letter-spacing);
+    margin-bottom: 16px;
+}
+
+.text {
+    margin: 0;
+}
+
+.text--body-16 {
+    font-family: map.get($typography-body-16, font-family);
+    font-size: map.get($typography-body-16, font-size);
+    font-weight: map.get($typography-body-16, font-weight);
+    line-height: map.get($typography-body-16, line-height);
+    letter-spacing: map.get($typography-body-16, letter-spacing);
+}
+
+@media (max-width: 992px) {
+    .heading--h1 {
+        font-family: map.get($typography-mobile-h1, font-family);
+        font-size: map.get($typography-mobile-h1, font-size);
+        font-weight: map.get($typography-mobile-h1, font-weight);
+        line-height: map.get($typography-mobile-h1, line-height);
+        letter-spacing: map.get($typography-mobile-h1, letter-spacing);
+    }
+}

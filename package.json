@@ -1,0 +1,27 @@
+{
+  "name": "private-captcha-static",
+  "version": "1.0.0",
+  "description": "Static HTML/CSS/JS website build scaffold",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "gulp dev",
+    "start": "gulp dev",
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "convert-images": "node convert-images.js"
+  },
+  "author": "Karina Desiatnyk",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "del": "^5.1.0",
+    "gulp": "^5.0.1",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-rename": "^2.1.0",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.100.0",
+    "sharp": "^0.34.5"
+  }
+}

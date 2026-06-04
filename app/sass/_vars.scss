@@ -1,0 +1,219 @@
+// Color styles from Figma.
+$color-white: #ffffff;
+$color-black: #000000;
+$color-bg: #faf8f5;
+$color-coral-for-bac: #de6565;
+$color-dark-green: #437540;
+$color-dark-green-hover: #2f522d;
+$color-error: #c33030;
+
+$color-grey-950: #0e0f0e;
+$color-grey-800: #464646;
+$color-grey-600: #686868;
+$color-grey-250-stroke: #bfbebc;
+$color-grey-10-surface: #fffffc;
+
+$color-blue-400: #709ecc;
+$color-blue-200: #b3cae1;
+
+$color-pastel-green-350: #9fb387;
+$color-pastel-green-300: #b2c29f;
+$color-pastel-green-250: #c5d1b7;
+$color-pastel-green-200: #ced8be;
+$color-pastel-green-150: #d9e1cf;
+$color-pastel-green-80: #ecf0e7;
+$color-pastel-green-50: #f5f7f0;
+
+// Non-solid paint styles.
+$color-shadow: rgba(172, 171, 169, 0.4);
+$color-bg-gradient-hero: linear-gradient(180deg, #f8f4ec 0%, #f9f7f2 46.943%);
+$color-diamond: linear-gradient(135deg, rgba(169, 169, 169, 1) 0%, rgba(169, 169, 169, 0) 100%);
+
+// Typography styles from Figma.
+$font-family-heading: 'Erode', serif;
+$font-family-base: 'DM Sans', sans-serif;
+$font-family-general-sans: 'General Sans', sans-serif;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+
+$typography-h1: (
+    font-family: $font-family-heading,
+    font-size: 84px,
+    font-weight: $font-weight-medium,
+    line-height: 0.9,
+    letter-spacing: -2px
+);
+
+$typography-h2: (
+    font-family: $font-family-heading,
+    font-size: 48px,
+    font-weight: $font-weight-medium,
+    line-height: 1,
+    letter-spacing: -2px
+);
+
+$typography-h3: (
+    font-family: $font-family-heading,
+    font-size: 32px,
+    font-weight: $font-weight-medium,
+    line-height: 1.1,
+    letter-spacing: 0
+);
+
+$typography-h4: (
+    font-family: $font-family-heading,
+    font-size: 24px,
+    font-weight: $font-weight-medium,
+    line-height: 1.1,
+    letter-spacing: 0
+);
+
+$typography-price: (
+    font-family: $font-family-heading,
+    font-size: 80px,
+    font-weight: $font-weight-medium,
+    line-height: 0.9,
+    letter-spacing: 0
+);
+
+$typography-title-large: (
+    font-family: $font-family-base,
+    font-size: 24px,
+    font-weight: $font-weight-medium,
+    line-height: 1.5,
+    letter-spacing: 0
+);
+
+$typography-title: (
+    font-family: $font-family-base,
+    font-size: 20px,
+    font-weight: $font-weight-medium,
+    line-height: 1.2,
+    letter-spacing: 0
+);
+
+$typography-title-small: (
+    font-family: $font-family-base,
+    font-size: 18px,
+    font-weight: $font-weight-medium,
+    line-height: 1.2,
+    letter-spacing: 0
+);
+
+$typography-button: (
+    font-family: $font-family-base,
+    font-size: 16px,
+    font-weight: $font-weight-semibold,
+    line-height: 1.2,
+    letter-spacing: 0
+);
+
+$typography-link: (
+    font-family: $font-family-base,
+    font-size: 16px,
+    font-weight: $font-weight-regular,
+    line-height: 1.2,
+    letter-spacing: 0
+);
+
+$typography-body-16: (
+    font-family: $font-family-base,
+    font-size: 16px,
+    font-weight: $font-weight-regular,
+    line-height: 1.4,
+    letter-spacing: 0
+);
+
+$typography-body-16-italic: (
+    font-family: $font-family-base,
+    font-size: 16px,
+    font-style: italic,
+    font-weight: $font-weight-regular,
+    line-height: 1.3,
+    letter-spacing: 0
+);
+
+$typography-body-14: (
+    font-family: $font-family-base,
+    font-size: 14px,
+    font-weight: $font-weight-regular,
+    line-height: 1.5,
+    letter-spacing: 0
+);
+
+$typography-body-14-italic: (
+    font-family: $font-family-base,
+    font-size: 14px,
+    font-style: italic,
+    font-weight: $font-weight-regular,
+    line-height: 1.5,
+    letter-spacing: 0
+);
+
+$typography-body-12: (
+    font-family: $font-family-base,
+    font-size: 12px,
+    font-weight: $font-weight-regular,
+    line-height: 1.3,
+    letter-spacing: 0
+);
+
+$typography-caps: (
+    font-family: $font-family-base,
+    font-size: 12px,
+    font-weight: $font-weight-regular,
+    line-height: 1.3,
+    letter-spacing: 0
+);
+
+$typography-testimonial-large: (
+    font-family: $font-family-base,
+    font-size: 24px,
+    font-style: italic,
+    font-weight: $font-weight-medium,
+    line-height: 1.3,
+    letter-spacing: 0
+);
+
+$typography-mobile-h1: (
+    font-family: $font-family-heading,
+    font-size: 48px,
+    font-weight: $font-weight-medium,
+    line-height: 0.95,
+    letter-spacing: -2px
+);
+
+$typography-mobile-h2: (
+    font-family: $font-family-heading,
+    font-size: 28px,
+    font-weight: $font-weight-medium,
+    line-height: 1,
+    letter-spacing: -2px
+);
+
+$typography-mobile-h3: (
+    font-family: $font-family-heading,
+    font-size: 24px,
+    font-weight: $font-weight-medium,
+    line-height: 1.1,
+    letter-spacing: 0
+);
+
+$typography-mobile-h4: (
+    font-family: $font-family-heading,
+    font-size: 20px,
+    font-weight: $font-weight-medium,
+    line-height: 1.1,
+    letter-spacing: 0
+);
+
+$typography-mobile-testimonial-large: (
+    font-family: $font-family-base,
+    font-size: 18px,
+    font-style: italic,
+    font-weight: $font-weight-medium,
+    line-height: 1.3,
+    letter-spacing: 0
+);
