@@ -8,7 +8,6 @@
     z-index: 100;
     width: 100%;
     border-bottom: 1px dashed transparent;
-    background: $color-bg;
     padding: 14px 0px;
     transition: border-color 0.2s ease;
 
@@ -182,7 +181,9 @@
 
     &--scrolled {
         border-bottom-color: $color-grey-250-stroke;
+        background-color: $color-bg;
     }
+   
 }
 
 @media (min-width: 993px) {
