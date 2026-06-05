@@ -138,8 +138,31 @@ function initHeaderMobileMenu() {
     });
 }
 
+function initHeroCaptcha() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const defaultCaptcha = hero.querySelector('.hero__captcha--defoult');
+    const verifiedCaptcha = hero.querySelector('.hero__captcha--verified');
+    const checkbox = defaultCaptcha?.querySelector('.pc-interactive-area input[type="checkbox"]');
+
+    if (!defaultCaptcha || !verifiedCaptcha || !checkbox) return;
+
+    const showVerifiedState = () => {
+        checkbox.checked = true;
+        hero.classList.add('hero--captcha-verified');
+    };
+
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) showVerifiedState();
+    });
+
+    checkbox.closest('.pc-interactive-area')?.addEventListener('click', showVerifiedState);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initHeaderDropdowns();
     initHeaderMobileMenu();
+    initHeroCaptcha();
 });

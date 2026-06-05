@@ -3,31 +3,105 @@
 
 // External Private Captcha widget classes are kept as-is.
 .pc-captcha-widget {
+    position: relative;
+    z-index: 0;
     display: flex;
     align-items: center;
-    width: 365px;
-    padding: 15px 24px ;
-    border: 1px solid $color-grey-250-stroke;
-    background-color: $color-grey-10-surface;
-    color: $color-grey-950;
+    width: 368px;
+    min-width: 368px;
+    height: 115px;
+    padding: 17.5px 24px ;
+    border: 0;
+    background: url("data:image/svg+xml,%3Csvg width='365' height='113' viewBox='0 0 365 113' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M357.102 0.675781C357.869 0.581559 358.636 0.847062 359.181 1.39551L363.194 5.43945C364.031 6.28233 364.5 7.4219 364.5 8.60938V109C364.5 110.933 362.933 112.5 361 112.5H10.3828C9.87691 112.5 9.38265 112.346 8.96582 112.06L1.61816 107.006C0.924082 106.528 0.516754 105.734 0.535156 104.892L2.4375 18.1211C2.46684 16.7927 3.5303 15.7195 4.8584 15.6777L313.484 6.03125L313.507 6.03027L313.529 6.02734L357.102 0.675781Z' fill='%23709ECC'/%3E%3Cpath d='M357.102 0.675781C357.869 0.581559 358.636 0.847062 359.181 1.39551L363.194 5.43945C364.031 6.28233 364.5 7.4219 364.5 8.60938V109C364.5 110.933 362.933 112.5 361 112.5H10.3828C9.87691 112.5 9.38265 112.346 8.96582 112.06L1.61816 107.006C0.924082 106.528 0.516754 105.734 0.535156 104.892L2.4375 18.1211C2.46684 16.7927 3.5303 15.7195 4.8584 15.6777L313.484 6.03125L313.507 6.03027L313.529 6.02734L357.102 0.675781Z' fill='black' fill-opacity='0.2'/%3E%3Cpath d='M357.102 0.675781C357.869 0.581559 358.636 0.847062 359.181 1.39551L363.194 5.43945C364.031 6.28233 364.5 7.4219 364.5 8.60938V109C364.5 110.933 362.933 112.5 361 112.5H10.3828C9.87691 112.5 9.38265 112.346 8.96582 112.06L1.61816 107.006C0.924082 106.528 0.516754 105.734 0.535156 104.892L2.4375 18.1211C2.46684 16.7927 3.5303 15.7195 4.8584 15.6777L313.484 6.03125L313.507 6.03027L313.529 6.02734L357.102 0.675781Z' stroke='black'/%3E%3Crect x='0.5' y='0.5' width='359' height='107' rx='2.5' fill='white'/%3E%3Crect x='0.5' y='0.5' width='359' height='107' rx='2.5' stroke='black'/%3E%3C/svg%3E") center / contain no-repeat;
+    color: $color-black;
+    border-radius: 3px;
+    box-shadow: 12px 18px 10px rgba(172, 171, 169, 0.4);
+
+
 }
 
+.pc-captcha-widget > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+.hero__captcha--verified .pc-captcha-widget {
+    background: url("data:image/svg+xml,%3Csvg width='365' height='113' viewBox='0 0 365 113' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M357.102 0.675781C357.869 0.581559 358.636 0.847062 359.181 1.39551L363.194 5.43945C364.031 6.28233 364.5 7.4219 364.5 8.60938V109C364.5 110.933 362.933 112.5 361 112.5H10.3828C9.87691 112.5 9.38265 112.346 8.96582 112.06L1.61816 107.006C0.924082 106.528 0.516754 105.734 0.535156 104.892L2.4375 18.1211C2.46684 16.7927 3.5303 15.7195 4.8584 15.6777L313.484 6.03125L313.507 6.03027L313.529 6.02734L357.102 0.675781Z' fill='%23437540'/%3E%3Cpath d='M357.102 0.675781C357.869 0.581559 358.636 0.847062 359.181 1.39551L363.194 5.43945C364.031 6.28233 364.5 7.4219 364.5 8.60938V109C364.5 110.933 362.933 112.5 361 112.5H10.3828C9.87691 112.5 9.38265 112.346 8.96582 112.06L1.61816 107.006C0.924082 106.528 0.516754 105.734 0.535156 104.892L2.4375 18.1211C2.46684 16.7927 3.5303 15.7195 4.8584 15.6777L313.484 6.03125L313.507 6.03027L313.529 6.02734L357.102 0.675781Z' fill='black' fill-opacity='0.2'/%3E%3Cpath d='M357.102 0.675781C357.869 0.581559 358.636 0.847062 359.181 1.39551L363.194 5.43945C364.031 6.28233 364.5 7.4219 364.5 8.60938V109C364.5 110.933 362.933 112.5 361 112.5H10.3828C9.87691 112.5 9.38265 112.346 8.96582 112.06L1.61816 107.006C0.924082 106.528 0.516754 105.734 0.535156 104.892L2.4375 18.1211C2.46684 16.7927 3.5303 15.7195 4.8584 15.6777L313.484 6.03125L313.507 6.03027L313.529 6.02734L357.102 0.675781Z' stroke='black'/%3E%3Crect x='0.5' y='0.5' width='359' height='107' rx='2.5' fill='white'/%3E%3Crect x='0.5' y='0.5' width='359' height='107' rx='2.5' stroke='black'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+
+
 .pc-interactive-area {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
 .pc-interactive-area input {
+    appearance: none;
+    display: grid;
+    place-items: center;
     width: 36px;
     height: 36px;
+    border: 1.5px solid $color-black;
+    border-radius: 4.5px;
     margin: 0;
-    accent-color: $color-dark-green;
+    background-color: $color-white;
+    cursor: pointer;
+
+    &::before {
+        content: '';
+        width: 20px;
+        height: 15px;
+        background: url("data:image/svg+xml,%3Csvg width='20' height='15' viewBox='0 0 20 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.707092 6.70703L6.70709 12.707L18.7071 0.707031' stroke='white' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
+        opacity: 0;
+    }
+
+    &:checked {
+        background-color: $color-dark-green;
+    }
+
+    &:checked::before {
+        opacity: 1;
+    }
+}
+
+.hero__captcha--verified .pc-interactive-area input {
+    position: relative;
+    z-index: 1;
+    width: 42px;
+    height: 42px;
+    border-color: $color-success-green;
+    border-radius: 50%;
+    background-color: $color-success-green;
+    cursor: default;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.hero__captcha--verified .pc-interactive-area::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: -2px;
+    z-index: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #eaeaea;
+}
+
+.hero__captcha--verified .pc-interactive-area label {
+    position: relative;
+    z-index: 1;
 }
 
 .pc-interactive-area label {
     font-size: map.get($typography-title-small, font-size);
-    font-weight: map.get($typography-title-small, font-weight);
+    font-family: $font-family-general-sans;
     line-height: map.get($typography-title-small, line-height);
     cursor: pointer;
 }
@@ -50,24 +124,32 @@
 }
 
 .pc-link {
-    color: $color-grey-600;
     font-family: $font-family-general-sans;
-    font-size: map.get($typography-body-12, font-size);
-    line-height: map.get($typography-body-12, line-height);
-    text-align: center;
-    transition: color 0.2s ease;
+font-style: normal;
+font-weight: 600;
+font-size: 9.9px;
+line-height: 11px;
+text-align: center;
+text-transform: uppercase;
+color: $color-black;
 
-    &:hover,
-    &:focus-visible {
-        color: $color-dark-green-hover;
-    }
 }
 
 @media (max-width: 992px) {
     .pc-captcha-widget {
         width: 273px;
-        min-height: 85px;
-        padding: 18px;
+        min-width: 273px;
+        height: auto;
+        padding: 19px;
+        box-shadow: 9px 14px 7.5px rgba(172, 171, 169, 0.4);
+    }
+   
+
+    .pc-shadow {
+        top: 14px;
+        left: 9px;
+        width: 272px;
+        height: 80px;
     }
 
     .pc-interactive-area {
@@ -82,14 +164,16 @@
     .pc-interactive-area label {
         font-size: map.get($typography-body-14, font-size);
         line-height: map.get($typography-body-14, line-height);
+        font-size: 13px;
     }
 
     .pc-logo {
-        width: 40px;
-        height: 43px;
+        width: 26px;
+        height: auto;
     }
 
     .pc-link {
-        font-size: 9px;
+        font-size: 7.43px;
+        line-height: 8.18px;
     }
 }

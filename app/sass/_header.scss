@@ -5,6 +5,7 @@
     box-sizing: border-box;
     position: absolute;
     top: 0;
+    left: 0;
     z-index: 100;
     width: 100%;
     border-bottom: 1px dashed transparent;
@@ -180,6 +181,9 @@
     }
 
     &--scrolled {
+        position: fixed;
+        top: 0;
+        left: 0;
         border-bottom-color: $color-grey-250-stroke;
         background-color: $color-bg;
     }
@@ -236,8 +240,13 @@
     }
 
     .header {
-        position: sticky;
         padding: 12px 0px;
+
+        &--scrolled {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
 
         &__logo {
             width: 112px;
