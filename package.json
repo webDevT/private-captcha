@@ -23,5 +23,8 @@
     "gulp-sass": "^6.0.1",
     "sass": "^1.100.0",
     "sharp": "^0.34.5"
+  },
+  "dependencies": {
+    "@dotlottie/player-component": "^2.7.12"
   }
 }

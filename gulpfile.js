@@ -43,8 +43,8 @@ const processJS = () => {
 };
 
 const copyImages = () => {
-    return gulp.src(['app/img/**/*', '!app/img/.gitkeep'], { base: 'app', allowEmpty: true })
-        .pipe(gulp.dest('app/temp/'));
+    copyDirectory('app/img', 'app/temp/img');
+    return Promise.resolve();
 };
 
 const copyDirectory = (srcDir, destDir) => {
@@ -69,18 +69,28 @@ const copyFonts = () => {
     return Promise.resolve();
 };
 
+const copyDotLottiePlayer = () => {
+    copyDirectory('node_modules/@dotlottie/player-component/dist', 'app/temp/js/vendor/dotlottie-player');
+    return Promise.resolve();
+};
+
 const convertImages = () => {
     const { convertImages: runConvert } = require('./convert-images.js');
     return runConvert('app/img', 'app/img');
 };
 
 const copyImagesProd = () => {
-    return gulp.src(['app/img/**/*', '!app/img/.gitkeep'], { base: 'app/img', allowEmpty: true })
-        .pipe(gulp.dest('docs/img'));
+    copyDirectory('app/img', 'docs/img');
+    return Promise.resolve();
 };
 
 const copyFontsProd = () => {
     copyDirectory('app/fonts', 'docs/fonts');
+    return Promise.resolve();
+};
+
+const copyDotLottiePlayerProd = () => {
+    copyDirectory('node_modules/@dotlottie/player-component/dist', 'docs/js/vendor/dotlottie-player');
     return Promise.resolve();
 };
 
@@ -127,10 +137,11 @@ const exportBuild = () => {
 
     const buildImg = copyImagesProd();
     const buildFonts = copyFontsProd();
+    const buildDotLottiePlayer = copyDotLottiePlayerProd();
     const buildHtaccess = gulp.src('.htaccess', { allowEmpty: true })
         .pipe(gulp.dest('docs'));
 
-    return Promise.all([buildHtml, buildCss, buildJs, buildImg, buildFonts, buildHtaccess]);
+    return Promise.all([buildHtml, buildCss, buildJs, buildImg, buildFonts, buildDotLottiePlayer, buildHtaccess]);
 };
 
 const build = gulp.series(clean, convertImages, compileSass, exportBuild);
@@ -141,6 +152,7 @@ const dev = gulp.series(
     processJS,
     copyImages,
     copyFonts,
+    copyDotLottiePlayer,
     processHTML,
     gulp.parallel(serve, watch)
 );
@@ -153,6 +165,7 @@ exports.js = processJS;
 exports.convertImages = convertImages;
 exports.copyImages = copyImages;
 exports.copyFonts = copyFonts;
+exports.copyDotLottiePlayer = copyDotLottiePlayer;
 exports.serve = serve;
 exports.watch = watch;
 exports.export = exportBuild;

@@ -431,6 +431,7 @@
 
 .logos {
     padding: 80px 0px 64px;
+
     background-color: $color-bg;
 
     &__title {
@@ -491,6 +492,7 @@
 @media (max-width: 480px) {
     .logos {
         padding: 48px 0px 56px;
+        padding-bottom: 16px;
         &__item {
             min-height: 8.533vw;
         }
@@ -506,5 +508,236 @@
         }
 
 
+    }
+}
+
+.switch-comparison {
+    padding: 100px 0;
+    &__grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 60px;
+        align-items: stretch;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        min-height: 612px;
+        border: 1px dashed $color-grey-250-stroke;
+        background-color: rgba($color-grey-10-surface, 0.62);
+    }
+
+    &__badge {
+        width: fit-content;
+        margin: 32px auto 0;
+        padding: 7.8px 20px;
+        border-radius: 2px;
+        font-size: map.get($typography-body-16, font-size);
+        font-weight: $font-weight-semibold;
+        line-height: map.get($typography-body-16, line-height);
+    }
+
+    &__badge--traditional {
+        background-color: rgba($color-coral-for-bac, 0.1);
+        color: $color-error;
+    }
+
+    &__badge--private {
+        background-color: rgba($color-dark-green, 0.1);
+        color: $color-dark-green;
+    }
+
+    &__visual {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 auto;
+        min-height: 396px;
+        padding: 24px;
+    }
+
+    &__animation {
+        display: block;
+        width: 100%;
+        max-width: 420px;
+        height: 360px;
+    }
+
+    &__card--private &__animation {
+        max-width: 360px;
+        height: 260px;
+    }
+
+    &__stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin: 0;
+        margin-bottom: 20px;
+    }
+
+    &__stat {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0;
+        text-align: center;
+    }
+
+    &__stat + &__stat {
+        border-left: 1px dashed $color-grey-250-stroke;
+    }
+
+    &__stat-value,
+    &__stat-icon {
+        margin: 0;
+        font-size: 20px;
+        font-weight: $font-weight-medium;
+        line-height: 1;
+    }
+
+    &__stat-value--danger,
+    &__stat-icon--danger {
+        color: $color-error;
+    }
+
+    &__stat-value--success,
+    &__stat-icon--success {
+        color: $color-dark-green;
+    }
+
+    &__stat-label {
+        line-height: map.get($typography-body-16, line-height);
+        color: $color-black;
+    }
+
+    &__divider {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        color: $color-black;
+        transform: translate(-50%, -50%);
+    }
+
+    &__divider::before,
+    &__divider::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        height: 282px;
+        border-left: 1px dashed $color-grey-250-stroke;
+        transform: translateX(-50%);
+    }
+
+    &__divider::before {
+        bottom: 100%;
+    }
+
+    &__divider::after {
+        top: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .switch-comparison {
+        padding: 56px 0 72px;
+
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        &__card {
+            min-height: 520px;
+        }
+
+        &__visual {
+            min-height: 320px;
+        }
+
+        &__divider {
+            position: relative;
+            width: 100%;
+            justify-self: center;
+            order: 2;
+            transform: none;
+            left: 0;
+            top: 0;
+        }
+
+        &__divider::before,
+        &__divider::after {
+            top: 50%;
+            width: calc(50% - 42px);
+            height: 0;
+            border-top: 1px dashed $color-grey-250-stroke;
+            border-left: 0;
+            transform: translateY(-50%);
+        }
+
+        &__divider::before {
+            right: calc(50% + 42px);
+            bottom: auto;
+            left: auto;
+        }
+
+        &__divider::after {
+            top: 50%;
+            right: auto;
+            left: calc(50% + 42px);
+        }
+
+        &__card--private {
+            order: 3;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .switch-comparison {
+        padding: 48px 0;
+
+        &__card {
+            min-height: 460px;
+        }
+
+        &__badge {
+            margin-top: 24px;
+            font-size: map.get($typography-body-14, font-size);
+            line-height: map.get($typography-body-14, line-height);
+        }
+
+        &__visual {
+            min-height: 280px;
+            padding: 16px;
+        }
+
+        &__animation,
+        &__card--private &__animation {
+            max-width: 100%;
+            height: 240px;
+        }
+
+        &__stats {
+            min-height: 80px;
+        }
+
+        &__stat-value,
+        &__stat-icon {
+            font-size: map.get($typography-body-16, font-size);
+        }
+
+        &__stat-label {
+            font-size: map.get($typography-body-14, font-size);
+            line-height: map.get($typography-body-14, line-height);
+        }
     }
 }
