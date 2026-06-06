@@ -174,8 +174,6 @@ function initLazyDotLottie() {
         if (isLoaded) return;
         isLoaded = true;
 
-        await import(playerUrl);
-
         animations.forEach((animation) => {
             const src = animation.dataset.src;
             if (!src) return;
@@ -183,6 +181,14 @@ function initLazyDotLottie() {
             animation.setAttribute('src', src);
             animation.removeAttribute('data-src');
         });
+
+        try {
+            await import(playerUrl);
+        } catch (error) {
+            isLoaded = false;
+            // eslint-disable-next-line no-console
+            console.error('Failed to load dotLottie player.', error);
+        }
     };
 
     if (!('IntersectionObserver' in window)) {

@@ -1,0 +1,293 @@
+@use 'sass:map';
+@use 'vars' as *;
+
+.footer {
+    overflow-x: hidden;
+    padding-top: 44px;
+    background-color: $color-bg;
+    color: $color-grey-800;
+
+    &__container {
+        position: relative;
+    }
+
+    &__container::before,
+    &__container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        border-left: 1px dashed $color-grey-250-stroke;
+        pointer-events: none;
+    }
+
+    &__container::before {
+        left: 20px;
+    }
+
+    &__container::after {
+        right: 20px;
+    }
+
+    &__main {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(260px, 1.75fr) minmax(0, 3fr);
+    }
+
+    &__main::before,
+    &__main::after,
+    &__bottom::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 100vw;
+        border-top: 1px dashed $color-grey-250-stroke;
+        transform: translateX(-50%);
+    }
+
+    &__main::before {
+        top: 0;
+    }
+
+    &__main::after {
+        bottom: 0;
+    }
+
+    &__brand {
+        padding: 42px 32px 40px 40px;
+    }
+
+    &__logo {
+        display: inline-flex;
+        width: 152px;
+    }
+
+    &__logo-image {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    &__tagline {
+        margin-top: 14px;
+        font-size: map.get($typography-body-14, font-size);
+        line-height: map.get($typography-body-14, line-height);
+        color: $color-grey-800;
+    }
+
+    &__nav {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        border-left: 1px dashed $color-grey-250-stroke;
+    }
+
+    &__group {
+        min-height: 210px;
+        padding: 38px 18px 32px;
+        border-right: 1px dashed $color-grey-250-stroke;
+    }
+
+    &__group:last-child {
+        border-right: 0;
+    }
+
+    &__heading {
+        margin: 0 0 14px;
+        font-size: map.get($typography-body-16, font-size);
+        font-weight: $font-weight-regular;
+        line-height: map.get($typography-body-16, line-height);
+        color: $color-black;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: map.get($typography-body-14, font-size);
+        line-height: map.get($typography-body-14, line-height);
+        color: $color-grey-800;
+        transition: color 0.2s ease;
+
+        &:hover,
+        &:focus-visible {
+            color: $color-dark-green;
+        }
+    }
+
+    &__link--status::after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $color-dark-green;
+    }
+
+    &__bottom {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        font-size: 14px;
+        line-height: map.get($typography-body-12, line-height);
+        color: $color-grey-800;
+        padding: 20px 40px;
+
+    }
+
+    &__bottom::before {
+        top: 0;
+    }
+
+    &__copyright,
+    &__credit {
+        margin: 0;
+    }
+
+    &__credit {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__credit-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: $color-grey-800;
+        transition: color 0.2s ease;
+
+        &:hover,
+        &:focus-visible {
+            color: $color-dark-green;
+        }
+    }
+
+    &__credit-mark {
+        width: 12px;
+        height: 12px;
+        background-color: currentColor;
+        clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    }
+}
+
+@media (max-width: 992px) {
+    .footer {
+        padding-top: 32px;
+
+        &__main {
+            position: relative;
+            grid-template-columns: 1fr;
+            padding-bottom: 16px;
+        }
+
+        &__main::after {
+            display: none;
+        }
+
+        &__brand {
+            padding: 32px 0;
+        }
+
+        &__nav {
+            position: relative;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-left: 0;
+        }
+        &__group {
+            min-height: auto;
+            border-right: 0;
+            border-bottom: 1px dashed $color-grey-250-stroke;
+        }
+
+        &__group:nth-child(odd) {
+            border-right: 1px dashed $color-grey-250-stroke;
+        }
+
+        &__group:last-child {
+            border-right: 0;
+        }
+        &__group:nth-child(odd) {
+            border-right: 0;
+        }
+        &__brand {
+            padding: 16px 16px 20px;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .footer {
+        padding-top: 40px;
+
+        &__brand {
+            padding: 16px 16px 20px;
+        }
+
+        &__logo {
+            width: 121px;
+        }
+
+        &__tagline {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        &__group {
+            padding: 28px 16px 8px;
+            border-bottom: 0;
+        }
+
+        &__group:nth-child(odd) {
+            border-right: 0;
+        }
+
+        &__heading {
+            margin-bottom: 14px;
+            font-size: map.get($typography-title-small, font-size);
+            line-height: map.get($typography-title-small, line-height);
+        }
+
+        &__list {
+            gap: 8px;
+        }
+
+        &__link {
+            font-size: map.get($typography-body-16, font-size);
+        }
+
+        &__bottom {
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+            gap: 16px;
+            min-height: auto;
+            padding: 16px 16px;
+            font-size: map.get($typography-body-14, font-size);
+            line-height: map.get($typography-body-14, line-height);
+        }
+
+        &__copyright-break {
+            display: block;
+        }
+
+        &__credit {
+            gap: 10px;
+        }
+
+        &__credit-link {
+            gap: 8px;
+        }
+    }
+}
