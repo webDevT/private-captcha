@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Private Captcha</title>
+    <link rel="preload" href="fonts/erode-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
@@ -1057,7 +1062,7 @@
                         <div class="switch-comparison__visual">
                             <dotlottie-player
                                 class="switch-comparison__animation"
-                                src="img/animation/left-side.lottie"
+                                data-src="img/animation/left-side.lottie"
                                 autoplay
                                 loop
                                 background="transparent"
@@ -1094,7 +1099,7 @@
                         <div class="switch-comparison__visual">
                             <dotlottie-player
                                 class="switch-comparison__animation"
-                                src="img/animation/right-side.lottie"
+                                data-src="img/animation/right-side.lottie"
                                 autoplay
                                 loop
                                 background="transparent"
@@ -1123,10 +1128,6 @@
 
     <!-- @@include('includes/footer.html') -->
 
-    <script
-        type="module"
-        src="js/vendor/dotlottie-player/dotlottie-player.mjs"
-    ></script>
     <script src="js/main.js"></script>
 </body>
 </html>

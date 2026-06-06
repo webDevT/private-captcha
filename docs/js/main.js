@@ -1,3 +1,5 @@
+const mainScriptUrl = document.currentScript?.src || new URL('js/main.js', document.baseURI).href;
+
 function initHeaderScroll() {
     const header = document.querySelector('.header');
     if (!header) return;
@@ -160,9 +162,50 @@ function initHeroCaptcha() {
     checkbox.closest('.pc-interactive-area')?.addEventListener('click', showVerifiedState);
 }
 
+function initLazyDotLottie() {
+    const section = document.querySelector('.switch-comparison');
+    const animations = document.querySelectorAll('dotlottie-player[data-src]');
+    if (!section || !animations.length) return;
+
+    const playerUrl = new URL('vendor/dotlottie-player/dotlottie-player.mjs', mainScriptUrl).href;
+    let isLoaded = false;
+
+    const loadAnimations = async () => {
+        if (isLoaded) return;
+        isLoaded = true;
+
+        await import(playerUrl);
+
+        animations.forEach((animation) => {
+            const src = animation.dataset.src;
+            if (!src) return;
+
+            animation.setAttribute('src', src);
+            animation.removeAttribute('data-src');
+        });
+    };
+
+    if (!('IntersectionObserver' in window)) {
+        loadAnimations();
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+
+        observer.disconnect();
+        loadAnimations();
+    }, {
+        rootMargin: '300px 0px'
+    });
+
+    observer.observe(section);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initHeaderDropdowns();
     initHeaderMobileMenu();
     initHeroCaptcha();
+    initLazyDotLottie();
 });
