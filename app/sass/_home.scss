@@ -646,6 +646,178 @@
     }
 }
 
+.choose-private {
+    overflow: hidden;
+    padding: 112px 0 96px;
+    background-color: $color-bg;
+
+    &__container {
+        position: relative;
+
+    }
+
+    &__header {
+        margin-bottom: 64px;
+    }
+
+    &__mascot {
+        position: absolute;
+        top: 22px;
+        left: -62px;
+        width: 191px;
+        height: 180px;
+        pointer-events: none;
+    }
+
+    &__mascot-body,
+    &__mascot-front {
+        position: absolute;
+        display: block;
+    }
+
+    &__mascot-body {
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__mascot-front {
+        top: 48.8889%;
+        left: 40.8377%;
+        z-index: 2;
+        width: 44.5026%;
+        height: 44.4444%;
+    }
+
+    &__mascot-front--mobile {
+        display: none;
+    }
+
+    &__comparison {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border: 1px dashed $color-grey-250-stroke;
+        background: #fff;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__comparison--mobile,
+    &__scroller {
+        display: none;
+    }
+
+    &__column {
+        padding: 40px 72px 36px;
+    }
+
+    &__column--private {
+        border-left: 1px dashed $color-grey-250-stroke;
+    }
+
+    &__column-title {
+        margin: 0 0 40px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    &__marker {
+        position: relative;
+        flex: 0 0 auto;
+        width: 20px;
+        height: 20px;
+        margin-top: 2px;
+        border: 1px solid $color-black;
+        border-radius: 50%;
+    }
+
+    &__marker--danger {
+        width: 24px;
+        height: 24px;
+        border: 1px solid $color-black;
+        border-radius: 50%;
+        background-color: $color-coral-for-bac;
+        box-shadow: 1px 1px 0 0 $color-black;
+    }
+
+    &__marker--danger::before,
+    &__marker--danger::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 13.5px;
+        height: 1px;
+        background-color: $color-white;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &__marker--danger::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &__marker--success {
+        width: 24px;
+        height: 24px;
+        border: 1px solid $color-black;
+        border-radius: 50%;
+        background-color: $color-dark-green;
+        box-shadow: 1px 1px 0 0 $color-black;
+    }
+
+    &__marker--success::before {
+        content: '';
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        width: 11px;
+        height: 6px;
+        border-bottom: 1px solid $color-white;
+        border-left: 1px solid $color-white;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &__content {
+        min-width: 0;
+    }
+
+    &__item-title {
+        margin-bottom: 0;
+    }
+
+    &__text {
+        margin: 6px 0 0;
+        color: $color-grey-800;
+    }
+
+    &__button {
+        min-width: 184px;
+    }
+
+    &__button--desktop {
+        margin-top: 34px;
+    }
+
+    &__button--mobile,
+    &__controls {
+        display: none;
+    }
+}
+
 @media (max-width: 992px) {
     .switch-comparison {
         padding: 56px 0 72px;
@@ -699,6 +871,203 @@
             order: 3;
         }
     }
+
+    .choose-private {
+        padding: 56px 0 72px;
+
+        &__header {
+            align-items: flex-start;
+            margin-bottom: 24px;
+            text-align: left;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        
+
+        &__mascot {
+            top: 66px;
+        right: -9px;
+            left: auto;
+            width: 76px;
+            height: 72px;
+        }
+
+        &__mascot-body,
+        &__mascot-front {
+            transform: rotate(35deg);
+            transform-origin: center;
+        }
+
+        &__mascot-front {
+            display: none;
+        }
+
+        &__mascot-front--mobile {
+            top: 56%;
+        left: 11%;
+        display: block;
+        width: 50px;
+        height: 22px;
+        transform: rotate(2deg);
+        }
+
+        &__comparison--desktop {
+            display: none;
+        }
+
+        &__comparison--mobile {
+            display: block;
+            width: 100%;
+            margin: 0;
+        }
+
+        &__scroller {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            width: calc(100% + ((100vw - 100%) / 2));
+            overflow-x: scroll;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            overscroll-behavior-x: contain;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        &__scroller::-webkit-scrollbar {
+            display: none;
+        }
+
+        &__slide {
+            flex: 0 0 100%;
+        }
+
+        &__slide:not(:last-child) &__comparison--mobile {
+            border-right: 0;
+        }
+
+        &__slide + &__slide &__comparison--mobile {
+            border-left: 0;
+        }
+
+        &__column {
+            padding: 26px 20px 24px;
+        }
+
+        &__column--private {
+            border-top: 1px dashed $color-grey-250-stroke;
+            border-left: 0;
+        }
+
+        &__column-title {
+            margin-bottom: 24px;
+        }
+
+        &__list {
+            gap: 0;
+        }
+
+        &__item {
+            display: flex;
+            gap: 14px;
+        }
+
+        &__marker {
+            width: 24px;
+            height: 24px;
+        }
+
+        &__marker--danger {
+            width: 24px;
+            height: 24px;
+        }
+
+        &__item-title {
+            margin-bottom: 0;
+        }
+
+        &__text {
+            margin-top: 6px;
+            font-size: map.get($typography-body-16, font-size);
+            line-height: map.get($typography-body-16, line-height);
+        }
+
+        &__button--desktop {
+            display: none;
+        }
+
+        &__button--mobile {
+            display: inline-flex;
+            width: 100%;
+            margin-top: 24px;
+        }
+
+        &__controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-top: 24px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        &__arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            width: 40px;
+            height: 40px;
+            border: 1px solid $color-black;
+            color: $color-black;
+            transition:
+                border-color 0.2s ease,
+                color 0.2s ease;
+            border-radius: 2px;
+        }
+
+        &__arrow:hover,
+        &__arrow:focus-visible {
+            border-color: $color-dark-green-hover;
+            color: $color-dark-green-hover;
+        }
+
+        &__arrow:disabled,
+        &__arrow[aria-disabled='true'] {
+            border-color: $color-grey-600;
+            color: $color-grey-600;
+            pointer-events: none;
+        }
+
+        &__pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1 1 auto;
+            gap: 8px;
+        }
+
+        &__dot {
+            width: 32px;
+            height: 4px;
+            border-radius: 999px;
+            background-color: rgba($color-grey-250-stroke, 0.55);
+            transition: background-color 0.2s ease;
+        }
+
+        &__dot.is-active {
+            background-color: $color-pastel-green-350;
+        }
+    }
+    .choose-private__container {
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -738,6 +1107,26 @@
         &__stat-label {
             font-size: map.get($typography-body-14, font-size);
             line-height: map.get($typography-body-14, line-height);
+        }
+    }
+
+    .choose-private {
+        padding: 48px 0 56px;
+
+        &__column {
+            padding: 25px 20px 24px;
+        }
+
+        &__controls {
+            gap: 12px;
+        }
+
+        &__pagination {
+            gap: 7px;
+        }
+
+        &__dot {
+            width: 32px;
         }
     }
 }

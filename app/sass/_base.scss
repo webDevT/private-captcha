@@ -85,13 +85,15 @@ a {
 
 .container {
     width: 1320px;
-    max-width: 100%;
+    max-width: 90%;
     margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-@media (max-width: 992px) {
-    
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+    }
 
 }
