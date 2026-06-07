@@ -1651,6 +1651,120 @@ a {
     line-height: 1.5;
   }
 }
+.cta {
+  padding: 98px 0;
+  background: #c5d1b7;
+  background-image: url("/img/cta-bg.svg");
+  background-size: contain;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  min-height: 633px;
+}
+.cta__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 400px;
+  text-align: center;
+}
+.cta__title {
+  max-width: 760px;
+  margin: 0;
+  font-family: "Erode", serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -2px;
+  color: #000000;
+}
+.cta__description {
+  max-width: 620px;
+  margin-top: 12px;
+  color: #464646;
+}
+.cta__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+.cta__button {
+  min-width: 200px;
+}
+
+@media (max-width: 1300px) {
+  .cta {
+    background-size: 1300px;
+  }
+}
+@media (max-width: 1170px) {
+  .cta {
+    background-size: 1120px;
+    background-position: bottom center;
+    min-height: auto;
+    padding-bottom: 43px;
+  }
+  .cta .heading--h1 {
+    font-size: 70px;
+  }
+}
+@media (max-width: 992px) {
+  .cta {
+    padding-top: 58px;
+    padding-bottom: 200px;
+    background-image: url("/img/cta-bg-mobile.svg");
+    background-size: 400px;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+  }
+  .cta .heading--h1 {
+    font-size: 48px;
+  }
+  .cta__inner {
+    min-height: auto;
+  }
+  .cta__title {
+    max-width: 620px;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: 0;
+  }
+}
+@media (max-width: 768px) {
+  .cta {
+    padding-top: 58px;
+    background-size: contain;
+    padding-bottom: 166px;
+  }
+  .cta__actions {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 16px;
+    margin: 24px;
+  }
+  .cta__description {
+    margin-top: 0;
+  }
+  .cta .heading--h1 br {
+    display: none;
+  }
+}
 .footer {
   overflow-x: hidden;
   padding-top: 44px;

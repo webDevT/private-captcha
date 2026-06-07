@@ -1,0 +1,109 @@
+@use 'sass:map';
+@use 'vars' as *;
+
+.cta {
+    padding: 98px 0;
+    background: $color-pastel-green-250;
+    background-image: url('/img/cta-bg.svg');
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    min-height: 633px;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        min-height: 400px;
+        text-align: center;
+    }
+
+    &__title {
+        max-width: 760px;
+        margin: 0;
+        font-family: map.get($typography-h2, font-family);
+        font-size: map.get($typography-h2, font-size);
+        font-weight: map.get($typography-h2, font-weight);
+        line-height: 1.08;
+        letter-spacing: map.get($typography-h2, letter-spacing);
+        color: $color-black;
+    }
+
+    &__description {
+        max-width: 620px;
+        margin-top: 12px;
+        color: $color-grey-800;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 40px;
+    }
+
+    &__button {
+        min-width: 200px;
+    }
+}
+@media (max-width: 1300px) {
+    .cta {
+        background-size: 1300px;
+    }
+}
+@media (max-width: 1170px) {
+    .cta {
+        background-size: 1120px;
+        background-position: bottom center;
+        min-height: auto;
+        padding-bottom: 43px;
+        .heading--h1 {
+            font-size: 70px;
+        }
+    }
+}
+@media (max-width: 992px) {
+    .cta {
+        padding-top: 58px;
+        padding-bottom: 200px;
+        background-image: url('/img/cta-bg-mobile.svg');
+        background-size: 400px;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        .heading--h1 {
+            font-size: 48px;
+        }
+        &__inner {
+            min-height: auto;
+        }
+
+        &__title {
+            max-width: 620px;
+            font-size: map.get($typography-h3, font-size);
+            line-height: map.get($typography-h3, line-height);
+            letter-spacing: map.get($typography-h3, letter-spacing);
+        }
+    }
+}
+@media (max-width: 768px) {
+ .cta {
+    padding-top: 58px;
+    background-size: contain;
+    padding-bottom: 166px;
+    &__actions {
+        flex-direction: column;
+        gap: 16px;
+        margin: 24px;
+    }
+    &__description {
+        margin-top: 0;
+    }
+    .heading--h1 {
+        br {
+            display: none;
+        }
+    }
+ }
+
+}
