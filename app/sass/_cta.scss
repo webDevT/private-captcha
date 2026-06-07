@@ -4,7 +4,7 @@
 .cta {
     padding: 98px 0;
     background: $color-pastel-green-250;
-    background-image: url('/img/cta-bg.svg');
+    background-image: url('../img/cta/cta-bg.svg');
     background-size: contain;
     background-position: bottom center;
     background-repeat: no-repeat;
@@ -67,7 +67,7 @@
     .cta {
         padding-top: 58px;
         padding-bottom: 200px;
-        background-image: url('/img/cta-bg-mobile.svg');
+        background-image: url('../img/cta/cta-bg-mobile.svg');
         background-size: 400px;
         background-position: bottom center;
         background-repeat: no-repeat;
