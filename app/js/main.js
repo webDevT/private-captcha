@@ -208,10 +208,29 @@ function initLazyDotLottie() {
     observer.observe(section);
 }
 
+function initFaq() {
+    const triggers = document.querySelectorAll('.faq__trigger');
+    if (!triggers.length) return;
+
+    triggers.forEach((trigger) => {
+        const answerId = trigger.getAttribute('aria-controls');
+        const answer = answerId ? document.getElementById(answerId) : null;
+        if (!answer) return;
+
+        trigger.addEventListener('click', () => {
+            const shouldOpen = trigger.getAttribute('aria-expanded') !== 'true';
+
+            trigger.setAttribute('aria-expanded', String(shouldOpen));
+            answer.hidden = !shouldOpen;
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initHeaderDropdowns();
     initHeaderMobileMenu();
     initHeroCaptcha();
     initLazyDotLottie();
+    initFaq();
 });

@@ -1250,6 +1250,84 @@
         </section>
         <!-- end switch comparison section -->
 
+        <section class="faq" aria-labelledby="faq-title">
+    <div class="container faq__container">
+        <div class="faq__intro">
+            <div class="section-header section-header--left faq__header">
+                <p class="section-header__label">Question zone</p>
+                <h2 class="section-header__title faq__title" id="faq-title">Frequently Asked Questions</h2>
+            </div>
+
+            <a class="button button--secondary faq__button faq__button--desktop" href="faq.html">More questions</a>
+        </div>
+
+        <div class="faq__list">
+            <article class="faq__item">
+                <h3 class="faq__question">
+                    <button class="faq__trigger" type="button" id="faq-question-1" aria-expanded="false" aria-controls="faq-answer-1">
+                        <span>What counts as a request?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq__answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" hidden>
+                    <p>A &ldquo;request&rdquo; refers to obtaining a new &ldquo;puzzle&rdquo; from our servers by the CAPTCHA widget. Note that, by default, CAPTCHA widget only obtains a new &ldquo;puzzle&rdquo; when the user starts filling out the form, so you don&rsquo;t pay for every page load.</p>
+                </div>
+            </article>
+
+            <article class="faq__item">
+                <h3 class="faq__question">
+                    <button class="faq__trigger" type="button" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">
+                        <span>Is there an additional charge for traffic spikes (tier limit violation)?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq__answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" hidden>
+                    <p>After your usage exceeds the current tier&rsquo;s limit for two consecutive months in a row, you will be contacted by our support with an offer to upgrade to a higher tier. You will not be automatically charged for sudden spikes of traffic.</p>
+                </div>
+            </article>
+
+            <article class="faq__item">
+                <h3 class="faq__question">
+                    <button class="faq__trigger" type="button" id="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3">
+                        <span>How easy is it to migrate from other providers?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq__answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" hidden>
+                    <p>Like many other CAPTCHA providers, Private Captcha offers an API specification compatible with Google reCAPTCHA, so migration only involves replacing API endpoints and client widget code.</p>
+                </div>
+            </article>
+
+            <article class="faq__item">
+                <h3 class="faq__question">
+                    <button class="faq__trigger" type="button" id="faq-question-4" aria-expanded="false" aria-controls="faq-answer-4">
+                        <span>How does Private Captcha technology work?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq__answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" hidden>
+                    <p>Instead of asking users to solve complex puzzles or track their behavior, Private Captcha solves an invisible cryptographic task in the background. The system automatically adjusts the task difficulty, ensuring smooth access for real users while making it too costly for bots to attempt. Cryptographic task provides equal security regardless of bot&rsquo;s intelligence level, making it effective even as AI technology improves.</p>
+                </div>
+            </article>
+
+            <article class="faq__item">
+                <h3 class="faq__question">
+                    <button class="faq__trigger" type="button" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5">
+                        <span>How does Private Captcha tell bots and users apart?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq__answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5" hidden>
+                    <p>On scale, bots exhibit different usage patterns and fingerprint statistics than real users. Detection of those patterns is part of the Private Captcha solution.</p>
+                </div>
+            </article>
+        </div>
+
+        <a class="button button--secondary faq__button faq__button--mobile" href="faq.html">More questions</a>
+    </div>
+</section>
+
+
         <section class="cta" aria-labelledby="cta-title">
     <div class="container cta__container">
         <div class="cta__inner">
