@@ -14,6 +14,15 @@
     margin-bottom: 16px;
 }
 
+.heading--h2 {
+    font-family: map.get($typography-h2, font-family);
+    font-size: map.get($typography-h2, font-size);
+    font-weight: map.get($typography-h2, font-weight);
+    line-height: map.get($typography-h2, line-height);
+    letter-spacing: map.get($typography-h2, letter-spacing);
+    color: $color-black;
+}
+
 .heading--h3 {
     font-family: map.get($typography-h3, font-family);
     font-size: map.get($typography-h3, font-size);
@@ -104,6 +113,14 @@
         font-weight: map.get($typography-mobile-h1, font-weight);
         line-height: map.get($typography-mobile-h1, line-height);
         letter-spacing: map.get($typography-mobile-h1, letter-spacing);
+    }
+
+    .heading--h2 {
+        font-family: map.get($typography-mobile-h2, font-family);
+        font-size: map.get($typography-mobile-h2, font-size);
+        font-weight: map.get($typography-mobile-h2, font-weight);
+        line-height: map.get($typography-mobile-h2, line-height);
+        letter-spacing: map.get($typography-mobile-h2, letter-spacing);
     }
 
     .heading--h3 {

@@ -346,6 +346,44 @@ function initChoosePrivateSlider() {
     updateControls();
 }
 
+function initPriceToggle() {
+    const section = document.querySelector('[data-price-section]');
+    if (!section) return;
+
+    const toggle = section.querySelector('[data-price-toggle]');
+    const requestsSelect = section.querySelector('[data-price-requests]');
+    const value = section.querySelector('[data-price-value]');
+    const billed = section.querySelector('[data-price-billed]');
+    const billingLabels = section.querySelectorAll('.price__billing-label');
+    if (!toggle || !requestsSelect || !value || !billed) return;
+
+    const calculateMonthlyPrice = (annualPrice) => Math.ceil(annualPrice / 0.7);
+
+    const updatePrice = () => {
+        const isAnnual = toggle.checked;
+        const selectedOption = requestsSelect.options[requestsSelect.selectedIndex];
+        const annualPrice = Number(selectedOption.dataset.annualPrice);
+        const monthlyPrice = calculateMonthlyPrice(annualPrice);
+        const displayedPrice = isAnnual ? annualPrice : monthlyPrice;
+        const yearlyTotal = annualPrice * 12;
+
+        value.textContent = String(displayedPrice);
+        billed.textContent = isAnnual ? `\u20ac${yearlyTotal} billed yearly` : 'billed monthly';
+
+        billingLabels.forEach((label) => {
+            const shouldBeActive = isAnnual
+                ? label.textContent.trim() === 'Annually'
+                : label.textContent.trim() === 'Monthly';
+
+            label.classList.toggle('price__billing-label--active', shouldBeActive);
+        });
+    };
+
+    toggle.addEventListener('change', updatePrice);
+    requestsSelect.addEventListener('change', updatePrice);
+    updatePrice();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initHeaderDropdowns();
@@ -354,4 +392,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initLazyDotLottie();
     initFaq();
     initChoosePrivateSlider();
+    initPriceToggle();
 });
