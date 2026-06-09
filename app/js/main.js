@@ -346,6 +346,197 @@ function initChoosePrivateSlider() {
     updateControls();
 }
 
+function initPriceSelectDropdown() {
+    const selects = document.querySelectorAll('[data-price-select]');
+    if (!selects.length) return;
+
+    const labelSuffix = 'requests / mo';
+
+    const renderLabel = (container, label) => {
+        const number = document.createElement('span');
+        const unit = document.createElement('span');
+        const trimmedLabel = label.trim();
+        const hasSuffix = trimmedLabel.endsWith(labelSuffix);
+
+        number.className = 'price__select-number';
+        number.textContent = hasSuffix
+            ? trimmedLabel.slice(0, -labelSuffix.length).trim()
+            : trimmedLabel;
+
+        unit.className = 'price__select-unit';
+        unit.textContent = hasSuffix ? labelSuffix : '';
+
+        container.replaceChildren(number);
+        if (unit.textContent) container.append(unit);
+    };
+
+    selects.forEach((wrapper, selectIndex) => {
+        const nativeSelect = wrapper.querySelector('[data-price-requests]');
+        const toggle = wrapper.querySelector('[data-price-select-toggle]');
+        const value = wrapper.querySelector('[data-price-select-value]');
+        const list = wrapper.querySelector('[data-price-select-list]');
+        if (!nativeSelect || !toggle || !value || !list) return;
+
+        const options = Array.from(nativeSelect.options);
+        const listId = list.id || `price-requests-list-${selectIndex + 1}`;
+        let optionItems = [];
+        let activeIndex = nativeSelect.selectedIndex;
+
+        list.id = listId;
+        toggle.setAttribute('aria-controls', listId);
+
+        const updateActiveOption = (index) => {
+            activeIndex = Math.max(0, Math.min(index, optionItems.length - 1));
+
+            optionItems.forEach((item, itemIndex) => {
+                item.classList.toggle('is-active', itemIndex === activeIndex);
+            });
+        };
+
+        const clearActiveOption = () => {
+            optionItems.forEach((item) => {
+                item.classList.remove('is-active');
+            });
+
+            activeIndex = nativeSelect.selectedIndex;
+            toggle.removeAttribute('aria-activedescendant');
+        };
+
+        const closeDropdown = () => {
+            wrapper.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+            clearActiveOption();
+        };
+
+        const focusOption = (index) => {
+            if (!optionItems.length) return;
+
+            updateActiveOption(index);
+            const activeOption = optionItems[activeIndex];
+            toggle.setAttribute('aria-activedescendant', activeOption.id);
+            activeOption.focus({ preventScroll: true });
+        };
+
+        const openDropdown = (shouldFocusSelected = false) => {
+            wrapper.classList.add('is-open');
+            toggle.setAttribute('aria-expanded', 'true');
+
+            if (shouldFocusSelected) {
+                focusOption(nativeSelect.selectedIndex);
+                return;
+            }
+
+            clearActiveOption();
+        };
+
+        const setDropdownOpen = (shouldOpen) => {
+            if (shouldOpen) {
+                openDropdown();
+                return;
+            }
+
+            closeDropdown();
+        };
+
+        const updateSelection = () => {
+            const selectedIndex = nativeSelect.selectedIndex;
+            const selectedOption = nativeSelect.options[selectedIndex];
+            if (!selectedOption) return;
+
+            renderLabel(value, selectedOption.textContent);
+
+            optionItems.forEach((item, itemIndex) => {
+                const isSelected = itemIndex === selectedIndex;
+
+                item.classList.toggle('is-selected', isSelected);
+                item.setAttribute('aria-selected', String(isSelected));
+            });
+
+            clearActiveOption();
+        };
+
+        const selectOption = (index) => {
+            nativeSelect.selectedIndex = index;
+            nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+            updateSelection();
+            closeDropdown();
+            toggle.focus({ preventScroll: true });
+        };
+
+        list.replaceChildren();
+
+        optionItems = options.map((option, optionIndex) => {
+            const item = document.createElement('li');
+            const itemText = document.createElement('span');
+
+            item.id = `${listId}-option-${optionIndex + 1}`;
+            item.className = 'price__select-option';
+            item.dataset.value = option.value;
+            item.role = 'option';
+            item.tabIndex = -1;
+
+            itemText.className = 'price__select-option-text';
+            renderLabel(itemText, option.textContent);
+            item.append(itemText);
+
+            item.addEventListener('mouseenter', clearActiveOption);
+            item.addEventListener('click', () => selectOption(optionIndex));
+            item.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowDown') {
+                    event.preventDefault();
+                    focusOption(activeIndex + 1);
+                    return;
+                }
+
+                if (event.key === 'ArrowUp') {
+                    event.preventDefault();
+                    focusOption(activeIndex - 1);
+                    return;
+                }
+
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    selectOption(activeIndex);
+                    return;
+                }
+
+                if (event.key === 'Escape') {
+                    event.preventDefault();
+                    closeDropdown();
+                    toggle.focus({ preventScroll: true });
+                }
+            });
+
+            list.append(item);
+            return item;
+        });
+
+        toggle.addEventListener('click', () => {
+            setDropdownOpen(!wrapper.classList.contains('is-open'));
+        });
+
+        toggle.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+                event.preventDefault();
+                openDropdown(true);
+                return;
+            }
+
+            if (event.key === 'Escape') {
+                closeDropdown();
+            }
+        });
+
+        nativeSelect.addEventListener('change', updateSelection);
+
+        document.addEventListener('click', (event) => {
+            if (!wrapper.contains(event.target)) closeDropdown();
+        });
+
+        updateSelection();
+    });
+}
+
 function initPriceToggle() {
     const section = document.querySelector('[data-price-section]');
     if (!section) return;
@@ -392,5 +583,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initLazyDotLottie();
     initFaq();
     initChoosePrivateSlider();
+    initPriceSelectDropdown();
     initPriceToggle();
 });
