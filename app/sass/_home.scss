@@ -645,6 +645,107 @@
     }
 }
 
+.gdpr-compliance {
+    padding: 100px 0;
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            'header privacy'
+            'infrastructure control';
+        gap: 20px;
+    }
+
+    &__header {
+        grid-area: header;
+        padding-top: 2px;
+    }
+
+    &__title {
+        max-width: 350px;
+        margin-bottom: 16px;
+    }
+
+    &__grid {
+        display: contents;
+    }
+
+    &__card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: center;
+        min-height: 194px;
+        padding: 32px;
+        border: 1px dashed $color-grey-250-stroke;
+        background-color: $color-grey-10-surface;
+    }
+
+    &__card--privacy {
+        grid-area: privacy;
+    }
+
+    &__card--infrastructure {
+        grid-area: infrastructure;
+    }
+
+    &__card--control {
+        grid-area: control;
+    }
+
+    &__card-title {
+        margin-bottom: 12px;
+    }
+
+    &__text {
+        max-width: 334px;
+        margin-bottom: 24px;
+        color: $color-grey-800;
+        font-family: map.get($typography-body-16, font-family);
+        font-size: map.get($typography-body-16, font-size);
+        font-weight: map.get($typography-body-16, font-weight);
+        line-height: map.get($typography-body-16, line-height);
+        letter-spacing: map.get($typography-body-16, letter-spacing);
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+        color: $color-black;
+        line-height: 1;
+        text-decoration: none;
+        font-weight: 600;
+        &:hover,
+        &:focus-visible {
+            color: $color-dark-green;
+        }
+
+        &.is-disabled,
+        &[aria-disabled='true'],
+        &:disabled {
+            color: $color-grey-600;
+            pointer-events: none;
+        }
+    }
+
+    &__link::after {
+        width: 12px;
+        height: 12px;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.530334 10.75L10.5303 0.75M10.5303 9.75V0.75H1.53033' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: '';
+    }
+
+    &__icon {
+        display: block;
+        width: 104px;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
 .choose-private {
     overflow: hidden;
     padding: 112px 0 96px;
@@ -1251,6 +1352,66 @@
         }
     }
 
+    .gdpr-compliance {
+        padding: 56px 0 72px;
+
+        &__container {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                'header'
+                'privacy'
+                'infrastructure'
+                'control';
+            gap: 12px;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        &__header {
+            margin-bottom: 8px;
+            padding: 0;
+        }
+
+        &__title {
+            margin-bottom: 0;
+        }
+
+        &__card {
+            grid-template-columns: minmax(0, 1fr) 80px;
+            grid-template-areas:
+                'content icon';
+            align-items: start;
+            min-height: 180px;
+            padding: 24px 20px;
+        }
+
+        &__content {
+            display: contents;
+        }
+
+        &__card-title {
+            grid-column: 1;
+            max-width: 220px;
+        }
+
+        &__text {
+            grid-column: 1 / -1;
+            max-width: none;
+            margin-top: 4px;
+        }
+
+        &__link {
+            grid-column: 1 / -1;
+        }
+
+        &__icon {
+            grid-column: 2;
+            grid-row: 1;
+            justify-self: end;
+            width: 72px;
+        }
+    }
+
     .choose-private {
         padding: 56px 0 72px;
 
@@ -1448,6 +1609,26 @@
         max-width: 100%;
     }
 
+    .gdpr-compliance {
+        padding: 48px 0;
+        &__container {
+            gap: 20px;
+        }
+
+        &__card {
+            gap: 12px;
+            grid-template-columns: minmax(0, 1fr) 64px;
+            padding: 22px 16px 24px;
+        }
+
+        &__icon {
+            height: 56px;
+        }
+        &__text {
+            margin-bottom: 16px;
+        }       
+    }
+
     .price {
         padding: 48px 0;
 
@@ -1481,7 +1662,13 @@
             background-size: 172px 20px;
         }
 
-       
+        &__billed {
+            flex: 0 0 auto;
+            max-width: 100%;
+            margin-left: auto;
+            text-align: right;
+            white-space: nowrap;
+        }
 
         &__features {
             padding: 20px 0px 0px;
@@ -1511,8 +1698,8 @@
         .price__features-title {
             width: 280px;
         }
-        &__billed {
-            margin-left: 0;
+        &__period {
+            margin-left: -6px;
         }
     }
 }
@@ -1577,4 +1764,12 @@
         }
     }
 
+}
+
+@media (max-width: 390px) {
+    .price__currency,
+    .price__value {
+        font-size: 65px;
+    }
+    
 }
