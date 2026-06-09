@@ -841,6 +841,7 @@ a {
     width: 100%;
     height: calc(100vh - 56px);
     padding: 40px 20px;
+    padding-bottom: 80px;
     background-color: #faf8f5;
     overflow-y: auto;
   }
@@ -2214,6 +2215,9 @@ a {
   padding: 0px 48px 0px 0px;
   border-right: 1px dashed #bfbebc;
 }
+.price__plan:has(.price__select-wrap.is-open) {
+  z-index: 5;
+}
 .price__amount {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2336,6 +2340,7 @@ a {
   top: calc(100% + 4px);
   right: 0;
   left: 0;
+  z-index: 10;
   display: none;
   max-height: 328px;
   padding: 8px 0;
@@ -2772,6 +2777,10 @@ a {
     padding-left: 20px;
     padding-right: 20px;
   }
+  .choose-private .section-header__title {
+    width: 300px;
+    max-width: 100%;
+  }
   .choose-private__mascot {
     top: 66px;
     right: -9px;
@@ -2880,8 +2889,10 @@ a {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
-    width: 100%;
+    width: calc(100% - 40px);
     margin-top: 24px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   .choose-private__controls {
     display: -webkit-box;
@@ -3004,7 +3015,7 @@ a {
     max-height: 38px;
   }
   .setup-process__visual--api {
-    margin-bottom: 40px;
+    margin-bottom: 46px;
   }
   .setup-process__visual--messages {
     max-width: 280px;

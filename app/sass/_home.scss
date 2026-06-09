@@ -1136,6 +1136,7 @@
 
     &__button {
         min-width: 184px;
+        
     }
 
     &__button--desktop {
@@ -1270,6 +1271,10 @@
         border-right: 1px dashed $color-grey-250-stroke;
     }
 
+    &__plan:has(&__select-wrap.is-open) {
+        z-index: 5;
+    }
+
     &__amount {
         display: flex;
         align-items: baseline;
@@ -1390,6 +1395,7 @@
         top: calc(100% + 4px);
         right: 0;
         left: 0;
+        z-index: 10;
         display: none;
         max-height: 328px;
         padding: 8px 0;
@@ -1838,6 +1844,10 @@
             padding-left: 20px;
             padding-right: 20px;
         }
+        .section-header__title {
+            width: 300px;
+            max-width: 100%;
+        }
 
         
 
@@ -1957,8 +1967,10 @@
 
         &__button--mobile {
             display: inline-flex;
-            width: 100%;
+            width: calc(100% - 40px);
             margin-top: 24px;
+            margin-left: 20px;
+            margin-right: 20px;
         }
 
         &__controls {
@@ -2079,7 +2091,7 @@
         }
 
         &__visual--api {
-            margin-bottom: 40px;
+            margin-bottom: 46px;
         }
 
         &__visual--messages {
