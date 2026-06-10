@@ -202,8 +202,14 @@
         <div class="pc-captcha-widget">
       
             <div class="pc-interactive-area">
-                <input type="checkbox" id="@@id" required>
-                <label for="@@id">Click to verify</label>
+                <input type="checkbox" id="pc-checkbox-hero" required>
+                <label for="pc-checkbox-hero">Click to verify</label>
+                <svg class="pc-progress" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+                    <circle class="pc-progress__pie" cx="50" cy="50" r="22" stroke-width="44" fill="transparent"></circle>
+                    <circle class="pc-progress__track" cx="50" cy="50" r="44" stroke-width="12" fill="transparent"></circle>
+                    <circle class="pc-progress__bar" cx="50" cy="50" r="44" stroke-width="12" fill="transparent"></circle>
+                </svg>
+                <span class="pc-progress-label">Verifying<span class="pc-dots"><span>.</span><span>.</span><span>.</span></span></span>
             </div>
             <div class="pc-spacer"></div>
             <div class="pc-info">
@@ -604,8 +610,13 @@
                 <div class="pc-captcha-widget">
                   
                     <div class="pc-interactive-area">
-                        <input type="checkbox" id="pc-checkbox-hero-verified" checked disabled>
-                        <label for="pc-checkbox-hero-verified">Verified</label>
+                        <svg class="pc-verified" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 154 154" aria-hidden="true" focusable="false">
+                            <g fill="none">
+                                <circle cx="77" cy="77" r="76"></circle>
+                                <polyline stroke-width="12" points="43.5,77.8 63.7,97.9 112.2,49.4" style="stroke-dasharray: 100px, 100px; stroke-dashoffset: 200px;"></polyline>
+                            </g>
+                        </svg>
+                        <span class="pc-verified-label">Verified</span>
                     </div>
                     <div class="pc-spacer"></div>
                     <div class="pc-info">
@@ -1205,7 +1216,27 @@
                     <article class="setup-process__card setup-process__card--api">
                         <h3 class="heading heading--h3 setup-process__card-title">Backward-Compatible API</h3>
                         <p class="setup-process__text">No breaking changes behind your back.</p>
-                        <img class="setup-process__visual setup-process__visual--api" src="img/home/process/feature.svg" width="553" height="202" alt="" aria-hidden="true">
+
+
+                        <div class="setup-process__visual setup-process__visual--api setup-process__api-status" aria-hidden="true">
+                            <div class="setup-process__api-status-header">
+                                <span class="setup-process__api-status-name">Global API</span>
+                                <span class="setup-process__api-status-badge">
+                                    <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                        <path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Healthy
+                                </span>
+                            </div>
+                            <div class="setup-process__api-status-bars"></div>
+                            <div class="setup-process__api-status-meta">
+                                <span>90 days ago</span>
+                                <span>Today</span>
+                            </div>
+                        </div>
+
+
+                        
                         <figure class="setup-process__quote">
                             <img class="setup-process__quote-icon" src="img/home/process/Quotes.svg" width="34" height="24" alt="" aria-hidden="true">
                             <blockquote class="setup-process__quote-text">I was looking for an accessible, European, privacy-friendly solution to prevent bot signups that were harming my domain. Private Captcha turned out to be a perfect fit: <strong>quick setup, excellent documentation, and impeccable support</strong> whenever I had questions!</blockquote>
@@ -1226,7 +1257,42 @@
                     <article class="setup-process__card setup-process__card--support">
                         <h3 class="heading heading--h3 setup-process__card-title">Human-to-Human Support</h3>
                         <p class="setup-process__text">A real person replies to you within 24 business hours</p>
-                        <img class="setup-process__visual setup-process__visual--messages" src="img/home/process/message-history.webp" width="553" height="400" alt="" aria-hidden="true">
+
+                        <div class="setup-process__visual setup-process__visual--messages setup-process__messages" aria-hidden="true">
+                            <div class="setup-process__messages-meta setup-process__messages-meta--top">
+                                <span class="setup-process__messages-time">11:48</span>
+                                <span class="setup-process__messages-author">You</span>
+                            </div>
+
+                            <div class="setup-process__message setup-process__message--outgoing setup-process__message--first">
+                                <span class="setup-process__message-line setup-process__message-line--long setup-process__message-line--top"></span>
+                                <span class="setup-process__message-line setup-process__message-line--short setup-process__message-line--bottom"></span>
+                            </div>
+
+                            <div class="setup-process__messages-agent">
+                                <span class="setup-process__messages-avatar">
+                                    <img class="setup-process__messages-avatar-image" src="img/home/avatar.webp" width="48" height="48" alt="">
+                                </span>
+                                <div class="setup-process__messages-agent-meta">
+                                    <span class="setup-process__messages-agent-name">Robert - Support Specialist</span>
+                                    <span class="setup-process__messages-time">11:52</span>
+                                </div>
+                            </div>
+
+                            <div class="setup-process__message setup-process__message--incoming">
+                                <span class="setup-process__message-line setup-process__message-line--white setup-process__message-line--long setup-process__message-line--top"></span>
+                                <span class="setup-process__message-line setup-process__message-line--white setup-process__message-line--long setup-process__message-line--bottom"></span>
+                            </div>
+
+                            <div class="setup-process__messages-meta setup-process__messages-meta--bottom">
+                                <span class="setup-process__messages-time">11:58</span>
+                                <span class="setup-process__messages-author">You</span>
+                            </div>
+
+                            <div class="setup-process__message setup-process__message--outgoing setup-process__message--last">
+                                <span class="setup-process__message-line setup-process__message-line--long"></span>
+                            </div>
+                        </div>
                     </article>
                 </div>
             </div>

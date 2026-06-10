@@ -69,17 +69,142 @@
     }
 }
 
-.hero__captcha--verified .pc-interactive-area input {
+// Verifying (in-progress) state: progress ring + "Verifying..." label,
+// replicates the original Private Captcha widget animation.
+.pc-progress,
+.pc-progress-label {
+    display: none;
+}
+
+.hero__captcha--verifying .pc-interactive-area input,
+.hero__captcha--verifying .pc-interactive-area label {
+    display: none;
+}
+
+.hero__captcha--verifying .pc-progress {
+    display: block;
+}
+
+.hero__captcha--verifying .pc-progress-label {
+    display: inline-block;
+}
+
+.pc-progress {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.pc-progress circle {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+// Circumference of r=44 circle is ~276.46; of r=22 "pie" circle is ~138.23.
+@keyframes pc-progress-bar {
+    0% {
+        stroke-dashoffset: 276.46px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes pc-progress-pie {
+    0% {
+        stroke-dasharray: 0px 276.46px;
+    }
+
+    100% {
+        stroke-dasharray: 138.23px 276.46px;
+    }
+}
+
+.pc-progress__pie {
+    stroke: $color-pastel-green-150;
+    animation: pc-progress-pie 1.4s ease-out forwards;
+}
+
+.pc-progress__track {
+    stroke: $color-grey-250-stroke;
+}
+
+.pc-progress__bar {
+    stroke: $color-dark-green;
+    stroke-dasharray: 276.46px 276.46px;
+    animation: pc-progress-bar 1.4s ease-out forwards;
+}
+
+// Animated dots after "Verifying", same as the original widget.
+@keyframes pc-dots-1 {
+    from {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+}
+
+@keyframes pc-dots-2 {
+    from {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes pc-dots-3 {
+    from {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 1;
+    }
+}
+
+.pc-dots span {
+    animation: pc-dots-1 2s infinite steps(1);
+}
+
+.pc-dots span:first-child + span {
+    animation-name: pc-dots-2;
+}
+
+.pc-dots span:first-child + span + span {
+    animation-name: pc-dots-3;
+}
+
+// Verified state: checkmark draws itself, same as the original widget.
+@keyframes pc-checkmark {
+    0% {
+        stroke-dashoffset: 100px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+.pc-verified {
     position: relative;
     z-index: 1;
     width: 42px;
     height: 42px;
-    border-color: $color-success-green;
-    border-radius: 50%;
-    background-color: $color-success-green;
-    cursor: default;
-    opacity: 1;
-    pointer-events: none;
+    flex-shrink: 0;
+}
+
+.pc-verified circle {
+    fill: $color-success-green;
+}
+
+.pc-verified polyline {
+    stroke: $color-white;
+    animation: pc-checkmark 0.35s ease-in-out 0.1s backwards;
 }
 
 .hero__captcha--verified .pc-interactive-area::before {
@@ -94,16 +219,23 @@
     background-color: #eaeaea;
 }
 
-.hero__captcha--verified .pc-interactive-area label {
+.hero__captcha--verified .pc-interactive-area .pc-verified-label {
     position: relative;
     z-index: 1;
 }
 
-.pc-interactive-area label {
+.pc-interactive-area label,
+.pc-interactive-area .pc-progress-label,
+.pc-interactive-area .pc-verified-label {
     font-size: map.get($typography-title-small, font-size);
     font-family: $font-family-general-sans;
     line-height: map.get($typography-title-small, line-height);
     cursor: pointer;
+}
+
+.pc-interactive-area .pc-progress-label,
+.pc-interactive-area .pc-verified-label {
+    cursor: default;
 }
 
 .pc-spacer {
@@ -161,7 +293,14 @@ color: $color-black;
         height: 27px;
     }
 
-    .pc-interactive-area label {
+    .pc-progress {
+        width: 30px;
+        height: 30px;
+    }
+
+    .pc-interactive-area label,
+    .pc-interactive-area .pc-progress-label,
+    .pc-interactive-area .pc-verified-label {
         font-size: map.get($typography-body-14, font-size);
         line-height: map.get($typography-body-14, line-height);
         font-size: 13px;

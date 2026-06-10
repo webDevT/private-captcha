@@ -196,6 +196,16 @@
             transform: translateX(-50%);
         }
 
+        &__dropdown::before {
+            position: absolute;
+            right: 0;
+            bottom: 100%;
+            left: 0;
+            height: 12px;
+            background: rgba($color-bg, 0.01);
+            content: '';
+        }
+
         &__menu-item--has-dropdown:hover &__dropdown,
         &__menu-item--has-dropdown:focus-within &__dropdown,
         &__menu-item--has-dropdown.is-open &__dropdown {

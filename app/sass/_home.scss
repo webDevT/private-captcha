@@ -770,10 +770,199 @@
         margin-bottom: 58px;
     }
 
+    // "Global API" status card, replaces the former feature.svg image.
+    &__api-status {
+        padding: 24px 16px;
+        border: 1px solid $color-black;
+        border-radius: 2px;
+        background-color: $color-white;
+        box-shadow: 3px 2px 0 $color-black;
+    }
+
+    &__api-status-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    &__api-status-name {
+        color: $color-black;
+        font-family: $font-family-base;
+        font-size: 20px;
+        font-weight: $font-weight-medium;
+        line-height: 1;
+    }
+
+    &__api-status-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 84px;
+        height: 25px;
+        flex-shrink: 0;
+        background-color: $color-dark-green;
+        color: $color-white;
+        font-family: $font-family-base;
+        font-size: 12px;
+        line-height: 1;
+    }
+
+    &__api-status-bars {
+        height: 64px;
+        margin-bottom: 16px;
+        background: repeating-linear-gradient(to right, $color-dark-green 0 4px, transparent 4px 8px);
+    }
+
+    &__api-status-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        color: $color-grey-600;
+        font-family: $font-family-base;
+        line-height: 1;
+    }
+
     &__visual--messages {
         max-width: 553px;
         margin-right: auto;
         margin-left: auto;
+    }
+
+    &__messages {
+        position: relative;
+        aspect-ratio: 551 / 411;
+        container-type: inline-size;
+        overflow: visible;
+        color: $color-grey-800;
+        font-family: $font-family-base;
+    }
+
+    &__messages-meta,
+    &__messages-agent-meta {
+        position: absolute;
+        display: flex;
+        align-items: baseline;
+        gap: 0.55em;
+        font-size: 16px;
+        font-size: clamp(8px, 2.9cqw, 16px);
+        line-height: 1;
+    }
+
+    &__messages-meta--top {
+        top: 0;
+        right: 0.3%;
+    }
+
+    &__messages-meta--bottom {
+        top: 76.9%;
+        right: 0.3%;
+    }
+
+    &__messages-time {
+        color: #7A7473;
+        font-weight: $font-weight-semibold;
+    }
+
+    &__messages-author,
+    &__messages-agent-name {
+        color: #423E3C;
+        font-weight: $font-weight-medium;
+    }
+
+    &__message {
+        position: absolute;
+        border: 1px dashed $color-grey-250-stroke;
+        border-radius: 2px;
+    }
+
+    &__message--outgoing {
+        background-color: $color-white;
+    }
+
+    &__message--first {
+        top: 8.27%;
+        right: 0.18%;
+        left: 11.62%;
+        height: 22.38%;
+    }
+
+    &__message--incoming {
+        top: 45.86%;
+        right: 0.27%;
+        left: 11.71%;
+        height: 22.14%;
+        background-color: $color-blue-200;
+    }
+
+    &__message--last {
+        top: 84.18%;
+        right: 0.18%;
+        left: 11.62%;
+        height: 15.57%;
+    }
+
+    &__message-line {
+        position: absolute;
+        left: 4.94%;
+        width: 90.12%;
+        height: 17.39%;
+        background-color: rgba($color-pastel-green-150, 0.5);
+    }
+
+    &__message-line--white {
+        background-color: $color-white;
+    }
+
+    &__message-line--short {
+        width: 56.58%;
+    }
+
+    &__message-line--top {
+        top: 26.08%;
+    }
+
+    &__message-line--bottom {
+        top: 56.52%;
+    }
+
+    &__message--last &__message-line {
+        top: 37.5%;
+        height: 25%;
+    }
+
+    &__messages-agent {
+        position: absolute;
+        top: 38.44%;
+        left: 0;
+        width: 100%;
+        height: 11.68%;
+    }
+
+    &__messages-agent-meta {
+        top: 8.4%;
+        left: 11.8%;
+    }
+
+    &__messages-avatar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8.71%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        border-radius: 50%;
+        background-color: $color-blue-200;
+    }
+
+    &__messages-avatar-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     &__code {
@@ -928,7 +1117,6 @@
     }
 
     &__text {
-        max-width: 334px;
         margin-bottom: 24px;
         color: $color-grey-800;
         font-family: map.get($typography-body-16, font-family);
@@ -1227,6 +1415,16 @@
         color: #437540;
         line-height: 1;
         border-radius: 2px;
+        transition:
+            color 0.2s ease,
+            border-color 0.2s ease,
+            background-color 0.2s ease;
+    }
+
+    &__discount--muted {
+        border-color: $color-grey-600;
+        background-color: $color-white;
+        color: $color-grey-600;
     }
 
     &__panel {
@@ -2094,10 +2292,139 @@
             margin-bottom: 46px;
         }
 
+        &__api-status {
+            padding: 13px 8px;
+            box-shadow: none;
+        }
+
+        &__api-status-header {
+            margin-bottom: 14px;
+        }
+
+        &__api-status-name {
+            font-size: 12px;
+        }
+
+        &__api-status-badge {
+            gap: 4px;
+            width: 51px;
+            height: 15px;
+            font-size: 8px;
+        }
+
+        &__api-status-badge svg {
+            width: 7px;
+            height: 5px;
+        }
+
+        &__api-status-bars {
+            height: 34px;
+            margin-bottom: 11px;
+            background: repeating-linear-gradient(to right, $color-dark-green 0 2px, transparent 2px 4px);
+        }
+
+        &__api-status-meta {
+            font-size: 8px;
+        }
+
         &__visual--messages {
-            max-width: 280px;
+            width: 100%;
+            max-width: 296px;
             margin-right: auto;
             margin-left: auto;
+        }
+
+        &__messages {
+            aspect-ratio: 296 / 344;
+        }
+
+        &__messages-meta,
+        &__messages-agent-meta {
+            gap: 0.5em;
+            font-size: clamp(10px, 4.73cqw, 14px);
+        }
+
+        &__messages-meta--top {
+            top: 1.45%;
+            right: 0.75%;
+        }
+
+        &__messages-meta--bottom {
+            top: 78.84%;
+            right: 0.75%;
+        }
+
+        &__message--first {
+            top: 8.43%;
+            right: 0.17%;
+            left: 0.17%;
+            height: 20.93%;
+        }
+
+        &__message--incoming {
+            top: 47.24%;
+            right: 0.34%;
+            left: 21.96%;
+            height: 20.64%;
+        }
+
+        &__message--last {
+            top: 85.76%;
+            right: 0.17%;
+            left: 0.17%;
+            height: 13.95%;
+        }
+
+        &__message-line {
+            left: 5.42%;
+            width: 89.15%;
+            height: 22.22%;
+        }
+
+        &__message-line--short {
+            width: 89.15%;
+        }
+
+        &__message-line--top {
+            top: 22.22%;
+        }
+
+        &__message-line--bottom {
+            top: 55.56%;
+        }
+
+        &__message--incoming &__message-line {
+            left: 6.74%;
+            width: 86.52%;
+            height: 22.54%;
+        }
+
+        &__message--incoming &__message-line--top {
+            top: 21.83%;
+        }
+
+        &__message--incoming &__message-line--bottom {
+            top: 55.63%;
+        }
+
+        &__message--last &__message-line {
+            top: 33.33%;
+            height: 33.33%;
+        }
+
+        &__messages-agent {
+            top: 38.66%;
+            height: 13.95%;
+        }
+
+        &__messages-agent-meta {
+            top: 10.42%;
+            left: 22.15%;
+        }
+
+        &__messages-avatar {
+            left: 0.17%;
+            width: 16.22%;
         }
 
         &__quote {

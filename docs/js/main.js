@@ -150,9 +150,21 @@ function initHeroCaptcha() {
 
     if (!defaultCaptcha || !verifiedCaptcha || !checkbox) return;
 
+    const VERIFYING_DURATION = 1600;
+    let isVerifying = false;
+
     const showVerifiedState = () => {
+        if (isVerifying) return;
+        isVerifying = true;
         checkbox.checked = true;
-        hero.classList.add('hero--captcha-verified');
+
+        // Show the in-progress animation (progress ring + "Verifying...")
+        // before switching to the verified widget, like the real widget does.
+        defaultCaptcha.classList.add('hero__captcha--verifying');
+
+        window.setTimeout(() => {
+            hero.classList.add('hero--captcha-verified');
+        }, VERIFYING_DURATION);
     };
 
     checkbox.addEventListener('change', () => {
@@ -546,6 +558,7 @@ function initPriceToggle() {
     const value = section.querySelector('[data-price-value]');
     const billed = section.querySelector('[data-price-billed]');
     const billingLabels = section.querySelectorAll('.price__billing-label');
+    const discount = section.querySelector('.price__discount');
     if (!toggle || !requestsSelect || !value || !billed) return;
 
     const calculateMonthlyPrice = (annualPrice) => Math.ceil(annualPrice / 0.7);
@@ -568,6 +581,8 @@ function initPriceToggle() {
 
             label.classList.toggle('price__billing-label--active', shouldBeActive);
         });
+
+        discount?.classList.toggle('price__discount--muted', !isAnnual);
     };
 
     toggle.addEventListener('change', updatePrice);

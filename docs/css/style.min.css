@@ -455,17 +455,188 @@ a {
   opacity: 1;
 }
 
-.hero__captcha--verified .pc-interactive-area input {
+.pc-progress,
+.pc-progress-label {
+  display: none;
+}
+
+.hero__captcha--verifying .pc-interactive-area input,
+.hero__captcha--verifying .pc-interactive-area label {
+  display: none;
+}
+
+.hero__captcha--verifying .pc-progress {
+  display: block;
+}
+
+.hero__captcha--verifying .pc-progress-label {
+  display: inline-block;
+}
+
+.pc-progress {
+  width: 40px;
+  height: 40px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.pc-progress circle {
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes pc-progress-bar {
+  0% {
+    stroke-dashoffset: 276.46px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes pc-progress-bar {
+  0% {
+    stroke-dashoffset: 276.46px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+@-webkit-keyframes pc-progress-pie {
+  0% {
+    stroke-dasharray: 0px 276.46px;
+  }
+  100% {
+    stroke-dasharray: 138.23px 276.46px;
+  }
+}
+@keyframes pc-progress-pie {
+  0% {
+    stroke-dasharray: 0px 276.46px;
+  }
+  100% {
+    stroke-dasharray: 138.23px 276.46px;
+  }
+}
+.pc-progress__pie {
+  stroke: #d9e1cf;
+  -webkit-animation: pc-progress-pie 1.4s ease-out forwards;
+          animation: pc-progress-pie 1.4s ease-out forwards;
+}
+
+.pc-progress__track {
+  stroke: #bfbebc;
+}
+
+.pc-progress__bar {
+  stroke: #437540;
+  stroke-dasharray: 276.46px 276.46px;
+  -webkit-animation: pc-progress-bar 1.4s ease-out forwards;
+          animation: pc-progress-bar 1.4s ease-out forwards;
+}
+
+@-webkit-keyframes pc-dots-1 {
+  from {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+}
+
+@keyframes pc-dots-1 {
+  from {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes pc-dots-2 {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes pc-dots-2 {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes pc-dots-3 {
+  from {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+@keyframes pc-dots-3 {
+  from {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+.pc-dots span {
+  -webkit-animation: pc-dots-1 2s infinite steps(1);
+          animation: pc-dots-1 2s infinite steps(1);
+}
+
+.pc-dots span:first-child + span {
+  -webkit-animation-name: pc-dots-2;
+          animation-name: pc-dots-2;
+}
+
+.pc-dots span:first-child + span + span {
+  -webkit-animation-name: pc-dots-3;
+          animation-name: pc-dots-3;
+}
+
+@-webkit-keyframes pc-checkmark {
+  0% {
+    stroke-dashoffset: 100px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+@keyframes pc-checkmark {
+  0% {
+    stroke-dashoffset: 100px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+.pc-verified {
   position: relative;
   z-index: 1;
   width: 42px;
   height: 42px;
-  border-color: #009901;
-  border-radius: 50%;
-  background-color: #009901;
-  cursor: default;
-  opacity: 1;
-  pointer-events: none;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.pc-verified circle {
+  fill: #009901;
+}
+
+.pc-verified polyline {
+  stroke: #ffffff;
+  -webkit-animation: pc-checkmark 0.35s ease-in-out 0.1s backwards;
+          animation: pc-checkmark 0.35s ease-in-out 0.1s backwards;
 }
 
 .hero__captcha--verified .pc-interactive-area::before {
@@ -480,16 +651,23 @@ a {
   background-color: #eaeaea;
 }
 
-.hero__captcha--verified .pc-interactive-area label {
+.hero__captcha--verified .pc-interactive-area .pc-verified-label {
   position: relative;
   z-index: 1;
 }
 
-.pc-interactive-area label {
+.pc-interactive-area label,
+.pc-interactive-area .pc-progress-label,
+.pc-interactive-area .pc-verified-label {
   font-size: 18px;
   font-family: "General Sans", sans-serif;
   line-height: 1.2;
   cursor: pointer;
+}
+
+.pc-interactive-area .pc-progress-label,
+.pc-interactive-area .pc-verified-label {
+  cursor: default;
 }
 
 .pc-spacer {
@@ -553,7 +731,13 @@ a {
     width: 27px;
     height: 27px;
   }
-  .pc-interactive-area label {
+  .pc-progress {
+    width: 30px;
+    height: 30px;
+  }
+  .pc-interactive-area label,
+  .pc-interactive-area .pc-progress-label,
+  .pc-interactive-area .pc-verified-label {
     font-size: 14px;
     line-height: 1.5;
     font-size: 13px;
@@ -783,6 +967,15 @@ a {
     -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
             transform: translateX(-50%);
+  }
+  .header__dropdown::before {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    height: 12px;
+    background: rgba(250, 248, 245, 0.01);
+    content: "";
   }
   .header__menu-item--has-dropdown:hover .header__dropdown, .header__menu-item--has-dropdown:focus-within .header__dropdown, .header__menu-item--has-dropdown.is-open .header__dropdown {
     -webkit-transform: translateX(-50%);
@@ -1750,10 +1943,194 @@ a {
 .setup-process__visual--api {
   margin-bottom: 58px;
 }
+.setup-process__api-status {
+  padding: 24px 16px;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 3px 2px 0 #000000;
+          box-shadow: 3px 2px 0 #000000;
+}
+.setup-process__api-status-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.setup-process__api-status-name {
+  color: #000000;
+  font-family: "DM Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+}
+.setup-process__api-status-badge {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 8px;
+  width: 84px;
+  height: 25px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  background-color: #437540;
+  color: #ffffff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+}
+.setup-process__api-status-bars {
+  height: 64px;
+  margin-bottom: 16px;
+  background: repeating-linear-gradient(to right, #437540 0 4px, transparent 4px 8px);
+}
+.setup-process__api-status-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 16px;
+  color: #686868;
+  font-family: "DM Sans", sans-serif;
+  line-height: 1;
+}
 .setup-process__visual--messages {
   max-width: 553px;
   margin-right: auto;
   margin-left: auto;
+}
+.setup-process__messages {
+  position: relative;
+  aspect-ratio: 551/411;
+  container-type: inline-size;
+  overflow: visible;
+  color: #464646;
+  font-family: "DM Sans", sans-serif;
+}
+.setup-process__messages-meta, .setup-process__messages-agent-meta {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  gap: 0.55em;
+  font-size: 16px;
+  font-size: clamp(8px, 2.9cqw, 16px);
+  line-height: 1;
+}
+.setup-process__messages-meta--top {
+  top: 0;
+  right: 0.3%;
+}
+.setup-process__messages-meta--bottom {
+  top: 76.9%;
+  right: 0.3%;
+}
+.setup-process__messages-time {
+  color: #7A7473;
+  font-weight: 600;
+}
+.setup-process__messages-author, .setup-process__messages-agent-name {
+  color: #423E3C;
+  font-weight: 500;
+}
+.setup-process__message {
+  position: absolute;
+  border: 1px dashed #bfbebc;
+  border-radius: 2px;
+}
+.setup-process__message--outgoing {
+  background-color: #ffffff;
+}
+.setup-process__message--first {
+  top: 8.27%;
+  right: 0.18%;
+  left: 11.62%;
+  height: 22.38%;
+}
+.setup-process__message--incoming {
+  top: 45.86%;
+  right: 0.27%;
+  left: 11.71%;
+  height: 22.14%;
+  background-color: #b3cae1;
+}
+.setup-process__message--last {
+  top: 84.18%;
+  right: 0.18%;
+  left: 11.62%;
+  height: 15.57%;
+}
+.setup-process__message-line {
+  position: absolute;
+  left: 4.94%;
+  width: 90.12%;
+  height: 17.39%;
+  background-color: rgba(217, 225, 207, 0.5);
+}
+.setup-process__message-line--white {
+  background-color: #ffffff;
+}
+.setup-process__message-line--short {
+  width: 56.58%;
+}
+.setup-process__message-line--top {
+  top: 26.08%;
+}
+.setup-process__message-line--bottom {
+  top: 56.52%;
+}
+.setup-process__message--last .setup-process__message-line {
+  top: 37.5%;
+  height: 25%;
+}
+.setup-process__messages-agent {
+  position: absolute;
+  top: 38.44%;
+  left: 0;
+  width: 100%;
+  height: 11.68%;
+}
+.setup-process__messages-agent-meta {
+  top: 8.4%;
+  left: 11.8%;
+}
+.setup-process__messages-avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8.71%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #b3cae1;
+}
+.setup-process__messages-avatar-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .setup-process__code {
   margin: 0 0 42px;
@@ -1890,7 +2267,6 @@ a {
   margin-bottom: 12px;
 }
 .gdpr-compliance__text {
-  max-width: 334px;
   margin-bottom: 24px;
   color: #464646;
   font-family: "DM Sans", sans-serif;
@@ -2176,6 +2552,13 @@ a {
   color: #437540;
   line-height: 1;
   border-radius: 2px;
+  -webkit-transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+.price__discount--muted {
+  border-color: #686868;
+  background-color: #ffffff;
+  color: #686868;
 }
 .price__panel {
   position: relative;
@@ -3017,10 +3400,114 @@ a {
   .setup-process__visual--api {
     margin-bottom: 46px;
   }
+  .setup-process__api-status {
+    padding: 13px 8px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .setup-process__api-status-header {
+    margin-bottom: 14px;
+  }
+  .setup-process__api-status-name {
+    font-size: 12px;
+  }
+  .setup-process__api-status-badge {
+    gap: 4px;
+    width: 51px;
+    height: 15px;
+    font-size: 8px;
+  }
+  .setup-process__api-status-badge svg {
+    width: 7px;
+    height: 5px;
+  }
+  .setup-process__api-status-bars {
+    height: 34px;
+    margin-bottom: 11px;
+    background: repeating-linear-gradient(to right, #437540 0 2px, transparent 2px 4px);
+  }
+  .setup-process__api-status-meta {
+    font-size: 8px;
+  }
   .setup-process__visual--messages {
-    max-width: 280px;
+    width: 100%;
+    max-width: 296px;
     margin-right: auto;
     margin-left: auto;
+  }
+  .setup-process__messages {
+    aspect-ratio: 296/344;
+  }
+  .setup-process__messages-meta, .setup-process__messages-agent-meta {
+    gap: 0.5em;
+    font-size: clamp(10px, 4.73cqw, 14px);
+  }
+  .setup-process__messages-meta--top {
+    top: 1.45%;
+    right: 0.75%;
+  }
+  .setup-process__messages-meta--bottom {
+    top: 78.84%;
+    right: 0.75%;
+  }
+  .setup-process__message--first {
+    top: 8.43%;
+    right: 0.17%;
+    left: 0.17%;
+    height: 20.93%;
+  }
+  .setup-process__message--incoming {
+    top: 47.24%;
+    right: 0.34%;
+    left: 21.96%;
+    height: 20.64%;
+  }
+  .setup-process__message--last {
+    top: 85.76%;
+    right: 0.17%;
+    left: 0.17%;
+    height: 13.95%;
+  }
+  .setup-process__message-line {
+    left: 5.42%;
+    width: 89.15%;
+    height: 22.22%;
+  }
+  .setup-process__message-line--short {
+    width: 89.15%;
+  }
+  .setup-process__message-line--top {
+    top: 22.22%;
+  }
+  .setup-process__message-line--bottom {
+    top: 55.56%;
+  }
+  .setup-process__message--incoming .setup-process__message-line {
+    left: 6.74%;
+    width: 86.52%;
+    height: 22.54%;
+  }
+  .setup-process__message--incoming .setup-process__message-line--top {
+    top: 21.83%;
+  }
+  .setup-process__message--incoming .setup-process__message-line--bottom {
+    top: 55.63%;
+  }
+  .setup-process__message--last .setup-process__message-line {
+    top: 33.33%;
+    height: 33.33%;
+  }
+  .setup-process__messages-agent {
+    top: 38.66%;
+    height: 13.95%;
+  }
+  .setup-process__messages-agent-meta {
+    top: 10.42%;
+    left: 22.15%;
+  }
+  .setup-process__messages-avatar {
+    left: 0.17%;
+    width: 16.22%;
   }
   .setup-process__quote {
     padding-left: 15px;
