@@ -1,0 +1,163 @@
+@use 'sass:map';
+@use 'vars' as *;
+
+.gdpr-compliance--features {
+    padding-top: 140px;
+    background-color: $color-bg;
+
+    .gdpr-compliance__title {
+        margin-bottom: 16px;
+    }
+
+    .gdpr-compliance__intro {
+        max-width: 410px;
+        margin: 0;
+        color: $color-grey-800;
+        font-family: map.get($typography-body-16, font-family);
+        font-size: map.get($typography-body-16, font-size);
+        font-weight: map.get($typography-body-16, font-weight);
+        line-height: map.get($typography-body-16, line-height);
+        letter-spacing: map.get($typography-body-16, letter-spacing);
+    }
+
+    .gdpr-compliance__card {
+        min-height: 234px;
+    }
+
+    .gdpr-compliance__icon {
+        align-self: center;
+    }
+}
+
+.features-hero {
+    padding: 150px 0 90px;
+    background: $color-bg-gradient-hero;
+
+    &__container {
+        text-align: center;
+    }
+
+    &__label {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &__title {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    &__description {
+        max-width: 640px;
+        margin: 0 auto;
+        color: $color-grey-800;
+    }
+}
+
+.features-page {
+    padding: 100px 0;
+    background-color: $color-bg;
+
+    &__header {
+        margin-bottom: 52px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    &__card {
+        min-height: 240px;
+        padding: 32px;
+        border: 1px dashed $color-grey-250-stroke;
+        background-color: $color-grey-10-surface;
+        scroll-margin-top: 110px;
+    }
+
+    &__card-title {
+        margin-bottom: 14px;
+    }
+
+    &__card-text {
+        margin: 0;
+        color: $color-grey-800;
+    }
+}
+
+@media (max-width: 992px) {
+    .gdpr-compliance--features {
+        padding-top: 112px;
+
+        .gdpr-compliance__intro {
+            max-width: none;
+        }
+    }
+
+    .features-hero {
+        padding: 112px 0 64px;
+
+        &__title {
+            max-width: 680px;
+        }
+    }
+
+    .features-page {
+        padding: 64px 0;
+
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        &__card {
+            min-height: 0;
+            padding: 28px 24px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .gdpr-compliance--features {
+        padding-top: 96px;
+
+        .gdpr-compliance__card {
+            min-height: 0;
+        }
+    }
+
+    .features-hero {
+        padding: 96px 0 48px;
+
+        &__container {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        &__title {
+            margin-bottom: 18px;
+        }
+    }
+
+    .features-page {
+        padding: 48px 0;
+
+        &__container {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        &__header {
+            margin-bottom: 28px;
+        }
+
+        &__card {
+            padding: 24px 20px;
+        }
+
+        &__card-title {
+            margin-bottom: 10px;
+        }
+    }
+}

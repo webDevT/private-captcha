@@ -27,7 +27,8 @@
 
 
 
-.hero__captcha--verified .pc-captcha-widget {
+.hero__captcha--verified .pc-captcha-widget,
+.pc-captcha-widget.is-verified {
     background: url("data:image/svg+xml,%3Csvg width='365' height='113' viewBox='0 0 365 113' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M357.102 0.675781C357.869 0.581559 358.636 0.847062 359.181 1.39551L363.194 5.43945C364.031 6.28233 364.5 7.4219 364.5 8.60938V109C364.5 110.933 362.933 112.5 361 112.5H10.3828C9.87691 112.5 9.38265 112.346 8.96582 112.06L1.61816 107.006C0.924082 106.528 0.516754 105.734 0.535156 104.892L2.4375 18.1211C2.46684 16.7927 3.5303 15.7195 4.8584 15.6777L313.484 6.03125L313.507 6.03027L313.529 6.02734L357.102 0.675781Z' fill='%23437540'/%3E%3Cpath d='M357.102 0.675781C357.869 0.581559 358.636 0.847062 359.181 1.39551L363.194 5.43945C364.031 6.28233 364.5 7.4219 364.5 8.60938V109C364.5 110.933 362.933 112.5 361 112.5H10.3828C9.87691 112.5 9.38265 112.346 8.96582 112.06L1.61816 107.006C0.924082 106.528 0.516754 105.734 0.535156 104.892L2.4375 18.1211C2.46684 16.7927 3.5303 15.7195 4.8584 15.6777L313.484 6.03125L313.507 6.03027L313.529 6.02734L357.102 0.675781Z' fill='black' fill-opacity='0.2'/%3E%3Cpath d='M357.102 0.675781C357.869 0.581559 358.636 0.847062 359.181 1.39551L363.194 5.43945C364.031 6.28233 364.5 7.4219 364.5 8.60938V109C364.5 110.933 362.933 112.5 361 112.5H10.3828C9.87691 112.5 9.38265 112.346 8.96582 112.06L1.61816 107.006C0.924082 106.528 0.516754 105.734 0.535156 104.892L2.4375 18.1211C2.46684 16.7927 3.5303 15.7195 4.8584 15.6777L313.484 6.03125L313.507 6.03027L313.529 6.02734L357.102 0.675781Z' stroke='black'/%3E%3Crect x='0.5' y='0.5' width='359' height='107' rx='2.5' fill='white'/%3E%3Crect x='0.5' y='0.5' width='359' height='107' rx='2.5' stroke='black'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
@@ -72,20 +73,41 @@
 // Verifying (in-progress) state: progress ring + "Verifying..." label,
 // replicates the original Private Captcha widget animation.
 .pc-progress,
-.pc-progress-label {
+.pc-progress-label,
+.pc-captcha-widget--interactive .pc-verified,
+.pc-captcha-widget--interactive .pc-verified-label {
     display: none;
 }
 
 .hero__captcha--verifying .pc-interactive-area input,
-.hero__captcha--verifying .pc-interactive-area label {
+.hero__captcha--verifying .pc-interactive-area label,
+.pc-captcha-widget.is-verifying .pc-interactive-area input,
+.pc-captcha-widget.is-verifying .pc-interactive-area label {
     display: none;
 }
 
-.hero__captcha--verifying .pc-progress {
+.hero__captcha--verifying .pc-progress,
+.pc-captcha-widget.is-verifying .pc-progress {
     display: block;
 }
 
-.hero__captcha--verifying .pc-progress-label {
+.hero__captcha--verifying .pc-progress-label,
+.pc-captcha-widget.is-verifying .pc-progress-label {
+    display: inline-block;
+}
+
+.pc-captcha-widget.is-verified .pc-interactive-area input,
+.pc-captcha-widget.is-verified .pc-interactive-area label,
+.pc-captcha-widget.is-verified .pc-progress,
+.pc-captcha-widget.is-verified .pc-progress-label {
+    display: none;
+}
+
+.pc-captcha-widget.is-verified .pc-verified {
+    display: block;
+}
+
+.pc-captcha-widget.is-verified .pc-verified-label {
     display: inline-block;
 }
 
@@ -207,7 +229,8 @@
     animation: pc-checkmark 0.35s ease-in-out 0.1s backwards;
 }
 
-.hero__captcha--verified .pc-interactive-area::before {
+.hero__captcha--verified .pc-interactive-area::before,
+.pc-captcha-widget.is-verified .pc-interactive-area::before {
     content: '';
     position: absolute;
     top: 0px;
@@ -219,7 +242,8 @@
     background-color: #eaeaea;
 }
 
-.hero__captcha--verified .pc-interactive-area .pc-verified-label {
+.hero__captcha--verified .pc-interactive-area .pc-verified-label,
+.pc-captcha-widget.is-verified .pc-interactive-area .pc-verified-label {
     position: relative;
     z-index: 1;
 }

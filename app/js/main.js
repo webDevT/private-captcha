@@ -174,6 +174,35 @@ function initHeroCaptcha() {
     checkbox.closest('.pc-interactive-area')?.addEventListener('click', showVerifiedState);
 }
 
+const CAPTCHA_VERIFYING_DURATION = 1600;
+
+function initTryCaptcha() {
+    document.querySelectorAll('.try-captcha .pc-captcha-widget').forEach((widget) => {
+        const checkbox = widget.querySelector('.pc-interactive-area input[type="checkbox"]');
+        if (!checkbox) return;
+
+        let isVerifying = false;
+
+        const showVerifyingState = () => {
+            if (isVerifying) return;
+            isVerifying = true;
+            checkbox.checked = true;
+            widget.classList.add('is-verifying');
+
+            window.setTimeout(() => {
+                widget.classList.remove('is-verifying');
+                widget.classList.add('is-verified');
+            }, CAPTCHA_VERIFYING_DURATION);
+        };
+
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) showVerifyingState();
+        });
+
+        checkbox.closest('.pc-interactive-area')?.addEventListener('click', showVerifyingState);
+    });
+}
+
 function initLazyDotLottie() {
     const section = document.querySelector('.switch-comparison');
     const animations = document.querySelectorAll('dotlottie-player[data-src]');
@@ -595,6 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderDropdowns();
     initHeaderMobileMenu();
     initHeroCaptcha();
+    initTryCaptcha();
     initLazyDotLottie();
     initFaq();
     initChoosePrivateSlider();

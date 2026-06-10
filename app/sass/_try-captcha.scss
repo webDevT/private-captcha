@@ -1,0 +1,62 @@
+@use 'vars' as *;
+
+.try-captcha {
+    padding: 100px 0;
+    background-color: $color-pastel-green-250;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 64px;
+    }
+
+    &__title {
+        flex: 0 1 420px;
+        margin: 0;
+    }
+
+    &__widget {
+        display: flex;
+        flex: 0 0 auto;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 992px) {
+    .try-captcha {
+        padding: 56px 0;
+        text-align: center;
+
+        &__container {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+        }
+
+        &__title {
+            flex-basis: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &__widget {
+            width: 100%;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .try-captcha {
+        padding: 48px 0;
+
+        &__container {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+    }
+}

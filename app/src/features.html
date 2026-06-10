@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features | Private Captcha</title>
+    <meta name="description" content="Explore Private Captcha features for adaptive bot protection, EU-only endpoints, audit logs, APIs, usage statistics, and widget customization.">
+    <link rel="preload" href="fonts/erode-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    @@include('includes/header.html')
+
+    <main class="page-main">
+        <section class="gdpr-compliance gdpr-compliance--features" aria-labelledby="features-gdpr-title">
+            <div class="container gdpr-compliance__container">
+                <div class="section-header gdpr-compliance__header">
+                    <p class="section-header__label gdpr-compliance__label">GDPR Compliance</p>
+                    <h1 class="heading heading--h2 gdpr-compliance__title" id="features-gdpr-title">EU isolation</h1>
+                    <p class="gdpr-compliance__intro">Private Captcha was built with GDPR/CCPA compliance by design. In addition to that you can restrict actual networking to go through EU servers.</p>
+                </div>
+
+                <div class="gdpr-compliance__grid">
+                    <article class="gdpr-compliance__card gdpr-compliance__card--privacy">
+                        <div class="gdpr-compliance__content">
+                            <h2 class="heading heading--h3 gdpr-compliance__card-title">EU suppliers</h2>
+                            <p class="gdpr-compliance__text">Private Captcha relies only on EU companies. Servers, storage, CDN, email - you name it - backed by EU businesses, which have strict GDPR requirements. Current suppliers include Hetzner, Bunny and Scaleway.</p>
+                            <a class="gdpr-compliance__link" href="/features.html#eu-only-endpoints">Learn more</a>
+                        </div>
+                        <img class="gdpr-compliance__icon" src="img/home/gdpr/eu-shield-check.svg" width="104" height="113" alt="" aria-hidden="true">
+                    </article>
+
+                    <article class="gdpr-compliance__card gdpr-compliance__card--infrastructure">
+                        <div class="gdpr-compliance__content">
+                            <h2 class="heading heading--h3 gdpr-compliance__card-title">EU routing</h2>
+                            <p class="gdpr-compliance__text">Private Captcha provides technical means to make client-side widget and server-side validations to connect only to EU servers. At the expense of small latency increase, this ensures no user data will be processed on non-EU servers.</p>
+                            <a class="gdpr-compliance__link" href="/docs.html">Check docs</a>
+                        </div>
+                        <img class="gdpr-compliance__icon" src="img/home/gdpr/self-hosting-control.svg" width="106" height="112" alt="" aria-hidden="true">
+                    </article>
+
+                    <article class="gdpr-compliance__card gdpr-compliance__card--control">
+                        <div class="gdpr-compliance__content">
+                            <h2 class="heading heading--h3 gdpr-compliance__card-title">Strict Privacy</h2>
+                            <p class="gdpr-compliance__text">Private Captcha does not collect or process any Personally Identifiable Information (PII). We have a Data Processing Agreement ready in addition to our Privacy Policies. Our code is public so all claims can be easily verified.</p>
+                            <a class="gdpr-compliance__link" href="/dpa.html">DPA</a>
+                        </div>
+                        <img class="gdpr-compliance__icon" src="img/home/gdpr/privacy-document-lock.svg" width="104" height="112" alt="" aria-hidden="true">
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        @@include('includes/cta.html')
+    </main>
+
+    @@include('includes/footer.html')
+
+    <script src="js/main.js"></script>
+</body>
+</html>
