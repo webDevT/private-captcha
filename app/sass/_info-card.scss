@@ -1,0 +1,68 @@
+@use 'sass:map';
+@use 'vars' as *;
+
+.info-card {
+    display: flex;
+    min-height: 204px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    border: 1px dashed $color-grey-250-stroke;
+    border-radius: 2px;
+    background-color: $color-grey-10-surface;
+    color: $color-black;
+}
+
+.info-card__icon {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: $color-dark-green;
+    background-color: $color-pastel-green-50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.info-card__icon img,
+.info-card__icon svg {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.info-card__title {
+    margin: 0 0 8px;
+    font-family: map.get($typography-h4, font-family);
+    font-size: map.get($typography-h4, font-size);
+    font-weight: map.get($typography-h4, font-weight);
+    line-height: map.get($typography-h4, line-height);
+    letter-spacing: map.get($typography-h4, letter-spacing);
+}
+
+.info-card__text {
+    margin: 0;
+    color: $color-grey-800;
+    font-family: map.get($typography-body-16, font-family);
+    font-size: map.get($typography-body-16, font-size);
+    font-weight: map.get($typography-body-16, font-weight);
+    line-height: map.get($typography-body-16, line-height);
+    letter-spacing: map.get($typography-body-16, letter-spacing);
+}
+
+@media (max-width: 992px) {
+    .info-card {
+        min-height: 0;
+        padding: 24px;
+    }
+
+    .info-card__icon {
+        margin-bottom: 16px;
+    }
+
+}

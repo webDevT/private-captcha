@@ -1,0 +1,370 @@
+@use 'sass:map';
+@use 'vars' as *;
+
+.about-story {
+    position: relative;
+    overflow: hidden;
+    padding-top: 184px;
+    padding-bottom: 100px;
+    color: $color-black;
+    background-image: url('../img/home/hero-background.svg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    &__container {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__panel {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+        gap: 88px;
+        align-items: center;
+        padding: 40px;
+        border: 1px dashed $color-grey-250-stroke;
+        background-color: $color-grey-10-surface;
+        border-radius: 2px;
+    }
+
+    &__panel::before,
+    &__panel::after {
+        position: absolute;
+        top: 0;
+        left: -0.5px;
+        width: 324px;
+        height: 48px;
+        content: '';
+        pointer-events: none;
+        transform: translateY(-100%);
+    }
+
+    &__panel::before {
+        background: $color-white;
+        clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 100%, 0 100%);
+    }
+
+    &__panel::after {
+        background-image: url("data:image/svg+xml,%3Csvg width='324' height='48' viewBox='0 0 324 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.5 48V0.5H284L323.5 48' stroke='%23BFBEBC' stroke-dasharray='2 2'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: 324px 48px;
+    }
+
+    &__content {
+        max-width: 650px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 94px;
+        margin-top: 12px;
+    }
+    &__sub-title {
+        width: 441px;
+        max-width: 100%;
+        margin-bottom: 16px;
+    }
+
+    &__text {
+        display: grid;
+        gap: 22px;
+        color: $color-black;
+        font-family: map.get($typography-body-16, font-family);
+        font-size: map.get($typography-body-16, font-size);
+        font-weight: map.get($typography-body-16, font-weight);
+        line-height: map.get($typography-body-16, line-height);
+        letter-spacing: map.get($typography-body-16, letter-spacing);
+    }
+
+    &__quote-card {
+        position: relative;
+        align-self: stretch;
+        padding: 40px;
+        border-radius: 2px;
+        background-color: $color-pastel-green-80;
+    }
+
+    &__quote-logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 16px;
+    }
+
+    &__quote-mark {
+        position: absolute;
+        top: 116px;
+        right: 40px;
+        width: 34px;
+        height: auto;
+    }
+
+    &__quote-text {
+        max-width: 340px;
+        font-family: $font-family-base;
+        font-size: 24px;
+        font-style: italic;
+        font-weight: $font-weight-medium;
+        line-height: 1.3;
+        color: $color-black;
+        padding-top: 44px;
+    }
+
+    &__quote-author {
+        margin-top: 36px;
+        font-family: $font-family-base;
+        color: $color-black;
+    }
+
+    &__quote-name,
+    &__quote-role {
+        display: block;
+    }
+
+    &__quote-name {
+        font-size: 20px;
+        font-weight: $font-weight-medium;
+    }
+
+    &__quote-role {
+        margin-top: 2px;
+        color: $color-grey-800;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+}
+
+.about-values {
+    padding-top: 80px;
+    padding-bottom: 100px;
+    color: $color-black;
+
+    &__header {
+        margin-bottom: 20px;
+    }
+
+    &__description {
+        margin: 12px 0 0;
+        color: $color-grey-800;
+        font-family: map.get($typography-body-16, font-family);
+        font-size: map.get($typography-body-16, font-size);
+        font-weight: map.get($typography-body-16, font-weight);
+        line-height: map.get($typography-body-16, line-height);
+        letter-spacing: map.get($typography-body-16, letter-spacing);
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+.about-cooperation {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0;
+    background-color: $color-pastel-green-200;
+    background-image: url('../img/about/about-background.svg');
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    color: $color-black;
+    &__container {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__button {
+        min-width: 168px;
+    }
+}
+
+@media (max-width: 992px) {
+    .about-story {
+        padding-top: 108px;
+        background-size: 800px;
+        background-position: top center;
+
+        &__panel {
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        &__content,
+        &__title {
+            max-width: 100%;
+        }
+
+        &__title {
+            margin-bottom: 68px;
+        }
+
+        &__quote-card {
+            min-height: 0;
+        }
+        &__quote-text {
+            max-width: 100%;
+        }
+        &__sub-title {
+            max-width: 100%;
+            width: 100%;
+        }
+        
+    }
+
+}
+
+@media (max-width: 992px) {
+    .about-values {
+        &__grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+    .about-story {
+        &__panel::before,
+        &__panel::after {
+            right: -0.5px;
+            left: auto;
+            width: 172px;
+            height: 20px;
+        }
+
+        &__panel::before {
+            clip-path: polygon(17px 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        &__panel::after {
+            background-image: url("data:image/svg+xml,%3Csvg width='172' height='20' viewBox='0 0 172 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M171.5 20V0.5H17L0.5 20' stroke='%23BFBEBC' stroke-dasharray='2 2'/%3E%3C/svg%3E");
+            background-size: 172px 20px;
+        }
+        &__quote-text {
+            font-size: 18px;
+        }
+        &__quote-mark {
+            top: 100px;
+            width: 28px;
+        }
+        &__quote-text {
+            margin-top: 24px;
+        }
+    }
+
+    .about-values {
+        padding-bottom: 88px;
+    }
+
+    .about-cooperation {
+        padding: 48px 0;
+
+        &::after {
+            width: 70%;
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .about-story {
+        padding: 48px 0 72px;
+
+        &__panel {
+            gap: 28px;
+            padding: 40px 20px 20px;
+        }
+
+        &__sub-title {
+            width: auto;
+            margin-bottom: 20px;
+        }
+
+        &__text {
+            gap: 20px;
+        }
+
+        &__quote-card {
+            padding: 16px;
+        }
+
+        &__quote-logo {
+            width: 180px;
+            margin-bottom: 28px;
+        }
+
+        &__quote-mark {
+            top: 75px;
+            right: 18px;
+        }
+
+        &__quote-text {
+            font-size: 20px;
+            line-height: 1.3;
+        }
+
+        &__quote-author {
+            margin-top: 24px;
+        }
+     
+    }
+
+    .about-values {
+        padding-bottom: 48px;
+        padding-top: 48px;
+
+        &__grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .about-cooperation {
+        text-align: center;
+        padding-top: 48px;
+        padding-bottom: 48px;
+        background-image: url('../img/about/about-background-mobile.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        &__container {
+            align-items: center;
+            flex-direction: column;
+        }
+
+        &__button {
+            min-width: 152px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .about-story {
+        padding-top: 72px;
+
+        &__container {
+            max-width: 100%;
+        }
+
+        &__title {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        &__panel {
+            border-right: 0;
+            border-left: 0;
+        }
+    }
+}

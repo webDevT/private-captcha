@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Hosting | Alternative | Private Captcha</title>
+    <link rel="preload" href="fonts/erode-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/dm-sans-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    <header class="header">
+    <div class="container header__container">
+        <a class="header__logo" href="/" aria-label="Private Captcha home">
+            <img class="header__logo-image" src="img/common/logo.svg" width="152" height="44" alt="Private Captcha">
+        </a>
+
+        <nav class="header__nav" id="site-menu" aria-label="Primary navigation">
+            <ul class="header__menu">
+                <li class="header__menu-item header__menu-item--has-dropdown">
+                    <a class="header__menu-link header__menu-link--dropdown" href="/use-cases.html" aria-haspopup="true" aria-expanded="false">
+                        Use cases
+                        <span class="header__menu-arrow" aria-hidden="true"></span>
+                    </a>
+                    <button class="header__submenu-back" type="button" aria-label="Back to main menu">
+                        <span class="header__submenu-back-icon" aria-hidden="true"></span>
+                        <span class="header__submenu-back-text">Use cases</span>
+                    </button>
+                    <ul class="header__dropdown" aria-label="Use cases submenu">
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/form-protection.html">Form protection</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/gdpr-compliance.html">GDPR compliance</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/secure-wordpress.html">Secure WordPress</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/rate-limiting.html">Rate limiting</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/accessibility.html">Accessibility</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="header__menu-item header__menu-item--has-dropdown">
+                    <a class="header__menu-link header__menu-link--dropdown" href="/features.html" aria-haspopup="true" aria-expanded="false">
+                        Features
+                        <span class="header__menu-arrow" aria-hidden="true"></span>
+                    </a>
+                    <button class="header__submenu-back" type="button" aria-label="Back to main menu">
+                        <span class="header__submenu-back-icon" aria-hidden="true"></span>
+                        <span class="header__submenu-back-text">Features</span>
+                    </button>
+                    <ul class="header__dropdown header__dropdown--features" aria-label="Features submenu">
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#smart-difficulty-scaling">Smart difficulty scaling</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#custom-rules">Custom rules</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#eu-only-endpoints">EU-only endpoints</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#audit-logs">Audit logs</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#platform-api">Platform API</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#usage-statistics">Usage statistics</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#widget-customization">Widget customization</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/features.html#dns-proxy">DNS proxy</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="header__menu-item header__menu-item--has-dropdown">
+                    <a class="header__menu-link header__menu-link--dropdown" href="/alternatives.html" aria-haspopup="true" aria-expanded="false">
+                        Alternative
+                        <span class="header__menu-arrow" aria-hidden="true"></span>
+                    </a>
+                    <button class="header__submenu-back" type="button" aria-label="Back to main menu">
+                        <span class="header__submenu-back-icon" aria-hidden="true"></span>
+                        <span class="header__submenu-back-text">Alternative</span>
+                    </button>
+                    <ul class="header__dropdown header__dropdown--alternative" aria-label="Alternative submenu">
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/google-recaptcha.html">Google reCAPTCHA</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/hcaptcha.html">hCaptcha</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/cloudflare-turnstile.html">Cloudflare Turnstile</a>
+                        </li>
+                        <li class="header__dropdown-item">
+                            <a class="header__dropdown-link" href="/friendly-captcha.html">Friendly Captcha</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="header__menu-item">
+                    <a class="header__menu-link" href="/docs.html">Docs</a>
+                </li>
+                <li class="header__menu-item">
+                    <a class="header__menu-link" href="/pricing.html">Pricing</a>
+                </li>
+                <li class="header__menu-item">
+                    <a class="header__menu-link" href="/self-hosting.html">Self-hosting</a>
+                </li>
+            </ul>
+            <div class="header__mobile-actions">
+                <a class="button button--primary header__mobile-signup" href="/signup.html">Start free trial</a>
+            </div>
+        </nav>
+
+        <div class="header__actions">
+            <a class="button button--text header__login" href="/login.html">Log in</a>
+            <a class="button button--secondary header__signup" href="/signup.html">Sign up</a>
+        </div>
+
+        <button class="header__toggle" type="button" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false">
+            <span class="header__toggle-line"></span>
+            <span class="header__toggle-line"></span>
+            <span class="header__toggle-line"></span>
+        </button>
+    </div>
+</header>
+
+
+
+
+
+    <main class="page-main">
+  
+        
+        <section class="faq" aria-labelledby="faq-title">
+    <div class="container faq__container">
+        <div class="faq__intro">
+            <div class="section-header section-header--left faq__header">
+                <p class="section-header__label">Question zone</p>
+                <h2 class="section-header__title faq__title" id="faq-title">Frequently Asked Questions</h2>
+            </div>
+
+            <a class="button button--secondary faq__button faq__button--desktop" href="faq.html">More questions</a>
+        </div>
+
+        <div class="faq__list">
+            <article class="faq__item">
+                <h3 class="faq__question">
+                    <button class="faq__trigger" type="button" id="faq-question-1" aria-expanded="false" aria-controls="faq-answer-1">
+                        <span>What counts as a request?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq__answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" hidden>
+                    <p>A &ldquo;request&rdquo; refers to obtaining a new &ldquo;puzzle&rdquo; from our servers by the CAPTCHA widget. Note that, by default, CAPTCHA widget only obtains a new &ldquo;puzzle&rdquo; when the user starts filling out the form, so you don&rsquo;t pay for every page load.</p>
+                </div>
+            </article>
+
+            <article class="faq__item">
+                <h3 class="faq__question">
+                    <button class="faq__trigger" type="button" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">
+                        <span>Is there an additional charge for traffic spikes (tier limit violation)?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq__answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" hidden>
+                    <p>After your usage exceeds the current tier&rsquo;s limit for two consecutive months in a row, you will be contacted by our support with an offer to upgrade to a higher tier. You will not be automatically charged for sudden spikes of traffic.</p>
+                </div>
+            </article>
+
+            <article class="faq__item">
+                <h3 class="faq__question">
+                    <button class="faq__trigger" type="button" id="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3">
+                        <span>How easy is it to migrate from other providers?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq__answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" hidden>
+                    <p>Like many other CAPTCHA providers, Private Captcha offers an API specification compatible with Google reCAPTCHA, so migration only involves replacing API endpoints and client widget code.</p>
+                </div>
+            </article>
+
+            <article class="faq__item">
+                <h3 class="faq__question">
+                    <button class="faq__trigger" type="button" id="faq-question-4" aria-expanded="false" aria-controls="faq-answer-4">
+                        <span>How does Private Captcha technology work?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq__answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" hidden>
+                    <p>Instead of asking users to solve complex puzzles or track their behavior, Private Captcha solves an invisible cryptographic task in the background. The system automatically adjusts the task difficulty, ensuring smooth access for real users while making it too costly for bots to attempt. Cryptographic task provides equal security regardless of bot&rsquo;s intelligence level, making it effective even as AI technology improves.</p>
+                </div>
+            </article>
+
+            <article class="faq__item">
+                <h3 class="faq__question">
+                    <button class="faq__trigger" type="button" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5">
+                        <span>How does Private Captcha tell bots and users apart?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </button>
+                </h3>
+                <div class="faq__answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5" hidden>
+                    <p>On scale, bots exhibit different usage patterns and fingerprint statistics than real users. Detection of those patterns is part of the Private Captcha solution.</p>
+                </div>
+            </article>
+        </div>
+
+        <a class="button button--secondary faq__button faq__button--mobile" href="faq.html">More questions</a>
+    </div>
+</section>
+
+        <section class="cta" aria-labelledby="cta-title">
+    <div class="container cta__container">
+        <div class="cta__inner">
+            <h2 class="heading--h1" id="cta-title">Protect Your Forms <br> And APIs From Abuse</h2>
+
+            <p class="text text--body-16 cta__description">
+                Independent, privacy-first, self-hostable CAPTCHA service made in EU
+            </p>
+
+            <div class="cta__actions">
+                <a class="button button--primary cta__button" href="/signup.html">Start free trial</a>
+                <a class="button button--secondary cta__button" href="/login.html">Log in</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+    <div class="container footer__container">
+        <div class="footer__main">
+            <div class="footer__brand">
+                <a class="footer__logo" href="/" aria-label="Private Captcha home">
+                    <img class="footer__logo-image" src="img/common/logo.svg" width="152" height="45" alt="Private Captcha">
+                </a>
+                <p class="footer__tagline">Made and Hosted in the EU</p>
+            </div>
+
+            <nav class="footer__nav" aria-label="Footer navigation">
+                <div class="footer__group">
+                    <h2 class="footer__heading">General</h2>
+                    <ul class="footer__list">
+                        <li class="footer__item">
+                            <a class="footer__link footer__link--status" href="/status.html">Status</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/docs.html">Documentation</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/integrations.html">Integrations</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/self-hosting.html">Self-hosting</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/faq.html">FAQ</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/about.html">About</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__group">
+                    <h2 class="footer__heading">Legal</h2>
+                    <ul class="footer__list">
+                        <li class="footer__item">
+                            <a class="footer__link" href="/terms.html">Terms and Conditions</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/dpa.html">DPA</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/privacy.html">End-User Privacy Policy</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/service-privacy-policy.html">Service Privacy Policy</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/eula.html">EULA</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__group">
+                    <h2 class="footer__heading">Use cases</h2>
+                    <ul class="footer__list">
+                        <li class="footer__item">
+                            <a class="footer__link" href="/form-protection.html">Form protection</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/gdpr-compliance.html">GDPR compliance</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/secure-wordpress.html">Secure WordPress</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/rate-limiting.html">Rate limiting</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/accessibility.html">Accessibility</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__group">
+                    <h2 class="footer__heading">Alternative to</h2>
+                    <ul class="footer__list">
+                        <li class="footer__item">
+                            <a class="footer__link" href="/google-recaptcha.html">Google reCAPTCHA</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/hcaptcha.html">hCaptcha</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/cloudflare-turnstile.html">CloudFlare Turnstile</a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__link" href="/friendly-captcha.html">Friendly Captcha</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="footer__bottom">
+            <p class="footer__copyright">
+                Copyright &copy; 2025&ndash;2026 Intmaker O&Uuml;.
+                <span class="footer__copyright-break">All rights reserved.</span>
+            </p>
+            <p class="footer__credit">
+                Designed by
+                <a class="footer__credit-link" href="https://league.design/" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.00285 0L0 14H16L8.00285 0ZM11.5736 10.2478L5.94938 7.59654L8.00285 4L11.5736 10.2478ZM4.95116 9.33718L10.6039 12H3.42816L4.95116 9.33718Z" fill="#464646"/>
+                        </svg>
+                        
+                    League Design Agency
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>
