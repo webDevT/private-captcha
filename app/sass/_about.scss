@@ -189,8 +189,15 @@
     &__button {
         min-width: 168px;
     }
+    &__text {
+        margin-top: 16px;
+        color: $color-grey-800;
+    }
 }
-
+.about-cooperation--alternative {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
 @media (max-width: 992px) {
     .about-story {
         padding-top: 108px;
@@ -366,5 +373,13 @@
             border-right: 0;
             border-left: 0;
         }
+    }
+    .about-cooperation__content {
+      
+            margin-left: auto;
+            margin-right: auto;
+            width: 270px;
+            max-width: 100%;
+     
     }
 }

@@ -1,0 +1,41 @@
+@use 'sass:map';
+@use 'vars' as *;
+
+.page-header {
+    padding-top: 184px;
+    padding-bottom: 64px;
+    text-align: center;
+    color: $color-black;
+    text-align: center;
+}
+
+.page-header__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-header__title {
+    margin-bottom: 16px;
+}
+
+.page-header__description {
+    max-width: 560px;
+    margin: 0;
+    color: $color-black;
+    font-family: map.get($typography-body-16, font-family);
+    font-size: map.get($typography-body-16, font-size);
+    font-weight: map.get($typography-body-16, font-weight);
+    line-height: map.get($typography-body-16, line-height);
+    letter-spacing: map.get($typography-body-16, letter-spacing);
+}
+
+@media (max-width: 992px) {
+    .page-header {
+        padding: 0;
+        padding-top: 108px;
+        padding-bottom: 48px;
+    }
+}
+
+
