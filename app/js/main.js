@@ -47,6 +47,11 @@ function initHeaderDropdowns() {
         if (!trigger) return;
 
         trigger.addEventListener('click', (event) => {
+            if (!mobileQuery.matches && item.classList.contains('header__menu-item--features')) {
+                closeAllDropdowns();
+                return;
+            }
+
             event.preventDefault();
 
             const isOpen = item.classList.contains('is-open');

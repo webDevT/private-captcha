@@ -61,7 +61,11 @@
         align-items: center;
         gap: 7px;
         padding: 4px 8px;
+        border: 0;
+        background: transparent;
         color: $color-grey-950;
+        cursor: pointer;
+        font: inherit;
         font-weight: $font-weight-regular;
         line-height: 1.2;
         text-decoration: none;
